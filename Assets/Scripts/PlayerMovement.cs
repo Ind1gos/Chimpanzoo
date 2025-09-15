@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float maxJumps = 2;
     [SerializeField] float jumps;
     [SerializeField] GameObject wall;
+    [SerializeField] private float wallSlideSpeed = 2f;
+    bool isTouchingWall = false;
+    [SerializeField] private float wallJumpForce = 7f;
+    [SerializeField] private float wallJumpHorizontalForce = 7f;
+
 
     private float horizontal;
     private bool groundCheck = false;
@@ -39,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
                 jumps--;
                 Debug.Log(jumps);
             }
+            else if (isTouchingWall)
+            {
+                //float wallDirection = horizontal == 0 ? -Mathf.Sign(transform.localScale.x) : -Mathf.Sign(horizontal);
+                //rb.AddForce(wallJumpHorizontalForce * wallDirection, wallJumpForce);
+                //isTouchingWall = false;
+            }
         }
     }
     private void FixedUpdate()
@@ -56,12 +68,12 @@ public class PlayerMovement : MonoBehaviour
             jumps = maxJumps;
             Debug.Log(jumps);
         }
-        //else if (other.gameObject.CompareTag("Wall"))
-        //{
-        //    jumps = 0;
-        //    rb.AddForce(Vector2.down);
-        //    Debug.Log("Wall");
-        //}
+
+        else if (other.gameObject.CompareTag("Wall"))
+        {
+            jumps = 0;
+            Debug.Log("Wall");
+        }
     }
     private void OnCollisionExit2D(Collision2D other)
     {
@@ -69,7 +81,27 @@ public class PlayerMovement : MonoBehaviour
         {
             groundCheck = false;
         }
+
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            isTouchingWall = false;
+        }
     }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            isTouchingWall = true;
+
+            // If player is moving down and touching wall, apply wall slide
+            if (rb.linearVelocity.y < 0)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, -wallSlideSpeed);
+            }
+        }
+    }
+
 
 }
 
