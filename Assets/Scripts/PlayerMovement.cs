@@ -7,13 +7,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed = 10f;
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] float maxJumps = 2;
     [SerializeField] float jumps;
+    [SerializeField] float maxJumps = 2;
+    [SerializeField] float wallJumps;
+    [SerializeField] float maxWallJumps = 1;
     [SerializeField] GameObject wall;
     [SerializeField] private float wallSlideSpeed = 2f;
     bool isTouchingWall = false;
-    [SerializeField] private float wallJumpForce = 7f;
-    [SerializeField] private float wallJumpHorizontalForce = 7f;
 
 
     private float horizontal;
@@ -23,13 +23,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         jumps = maxJumps;
+        wallJumps = maxWallJumps;
     }
 
-    private void Update()
+    void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
 
-        // Handle jumping in Update()
+        //Hopp från mark 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (groundCheck)
@@ -45,15 +46,35 @@ public class PlayerMovement : MonoBehaviour
                 jumps--;
                 Debug.Log(jumps);
             }
-            else if (isTouchingWall)
+            //Hopp från vägg
+            if (isTouchingWall && wallJumps > 0 && Input.GetKeyDown(KeyCode.Space))
             {
-                //float wallDirection = horizontal == 0 ? -Mathf.Sign(transform.localScale.x) : -Mathf.Sign(horizontal);
-                //rb.AddForce(wallJumpHorizontalForce * wallDirection, wallJumpForce);
-                //isTouchingWall = false;
+                jumps = 0;
+                if (horizontal < 0)
+                {
+                    rb.AddForce(new Vector2(1, 1 * jumpForce));
+                    wallJumps--;
+                }
+                else if (horizontal > 0)
+                {
+                    rb.AddForce(new Vector2(-1, 1 * jumpForce));
+                    wallJumps--;
+                }
             }
         }
+        //Flip sprite (använder för Wall Jump)
+        if (horizontal > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (horizontal < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        
     }
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         // Apply movement without overriding jump
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
@@ -67,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
 
             jumps = maxJumps;
             Debug.Log(jumps);
+            wallJumps = maxWallJumps;
+            Debug.Log(wallJumps);
         }
 
         else if (other.gameObject.CompareTag("Wall"))
