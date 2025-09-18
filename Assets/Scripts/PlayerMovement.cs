@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float maxJumps = 2;
     [SerializeField] float wallJumps;
     [SerializeField] float maxWallJumps = 1;
+    float wallJumpPower = 2f;
     [SerializeField] GameObject wall;
     [SerializeField] private float wallSlideSpeed = 2f;
     bool isTouchingWall = false;
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
 
-        //Hopp från mark 
+        //Jump
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (groundCheck)
@@ -39,14 +40,14 @@ public class PlayerMovement : MonoBehaviour
                 jumps--;
                 Debug.Log(jumps);
             }
-            //double jump
+            //Double jump
             else if (jumps > 0)
             {
                 rb.AddForce(Vector2.up * jumpForce);
                 jumps--;
                 Debug.Log(jumps);
             }
-            //Hopp från vägg
+            //Wall jump
             if (isTouchingWall && wallJumps > 0 && Input.GetKeyDown(KeyCode.Space))
             {
                 jumps = 0;
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (horizontal > 0)
                 {
-                    rb.AddForce(new Vector2(-1, 1 * jumpForce));
+                    rb.AddForce(new Vector2(-1 , 1 * jumpForce));
                     wallJumps--;
                 }
             }
