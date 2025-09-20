@@ -5,15 +5,15 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] float jumps;
-    [SerializeField] float maxJumps = 2;
-    [SerializeField] float wallJumps;
-    [SerializeField] float maxWallJumps = 1;
-    float wallJumpPower = 2f;
-    [SerializeField] GameObject wall;
-    [SerializeField] private float wallSlideSpeed = 2f;
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpForce;
+    [SerializeField] float wallJumpForce;
+    [SerializeField] float wallSlideSpeed;
+
+    float jumps;
+    float maxJumps = 2;
+    float wallJumps;
+    float maxWallJumps = 1;
     bool isTouchingWall = false;
 
 
@@ -48,19 +48,21 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log(jumps);
             }
             //Wall jump
-            if (isTouchingWall && wallJumps > 0 && Input.GetKeyDown(KeyCode.Space))
+
+            if (isTouchingWall && Input.GetKeyDown(KeyCode.Space))
             {
-                jumps = 0;
                 if (horizontal < 0)
                 {
-                    rb.AddForce(new Vector2(1, 1 * jumpForce));
-                    wallJumps--;
+                    rb.AddForce(new Vector2(1, 1) * wallJumpForce);
+                    jumps--;
                 }
                 else if (horizontal > 0)
                 {
-                    rb.AddForce(new Vector2(-1 , 1 * jumpForce));
-                    wallJumps--;
+                    rb.AddForce(new Vector2(-1, 1) * wallJumpForce);
+                    jumps--;
                 }
+                //Så inte mer än 1 jump logic händer samtidigt
+                return;
             }
         }
         //Flip sprite (använder för Wall Jump)
@@ -89,14 +91,13 @@ public class PlayerMovement : MonoBehaviour
 
             jumps = maxJumps;
             Debug.Log(jumps);
-            wallJumps = maxWallJumps;
-            Debug.Log(wallJumps);
+            //wallJumps = maxWallJumps;
+            //Debug.Log(wallJumps);
         }
 
         else if (other.gameObject.CompareTag("Wall"))
         {
-            jumps = 0;
-            Debug.Log("Wall");
+            Debug.Log(jumps);
         }
     }
     private void OnCollisionExit2D(Collision2D other)
