@@ -115,11 +115,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
+        //wall slide
         if (other.gameObject.CompareTag("Wall"))
         {
             isTouchingWall = true;
-
-            // If player is moving down and touching wall, apply wall slide
             if (rb.linearVelocity.y < 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, -wallSlideSpeed);

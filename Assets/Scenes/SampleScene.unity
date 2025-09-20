@@ -348,58 +348,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3153852748472537007, guid: 78707137f0a18eb409b242f9dd7cfbe4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 158938086}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78707137f0a18eb409b242f9dd7cfbe4, type: 3}
 --- !u!4 &158938081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6601364344411730911, guid: 78707137f0a18eb409b242f9dd7cfbe4, type: 3}
   m_PrefabInstance: {fileID: 158938080}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &158938082 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3153852748472537007, guid: 78707137f0a18eb409b242f9dd7cfbe4, type: 3}
-  m_PrefabInstance: {fileID: 158938080}
-  m_PrefabAsset: {fileID: 0}
---- !u!70 &158938086
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158938082}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.012017012, y: 0.0014670545}
-  m_Size: {x: 1.6869426, y: 1.002935}
-  m_Direction: 0
 --- !u!4 &213122953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9014053084872166421, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
@@ -1301,7 +1256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: wallJumpForce
-      value: 300
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: wallJumpPower
