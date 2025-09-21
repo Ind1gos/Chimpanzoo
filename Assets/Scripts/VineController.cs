@@ -3,7 +3,7 @@ using UnityEngine;
 public class VineController : MonoBehaviour
 {
     Rigidbody2D rb;
-    [SerializeField] Transform playerPos;
+    [SerializeField] Transform player;
     [SerializeField] bool isAttached = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,7 +17,7 @@ public class VineController : MonoBehaviour
     {
         if (isAttached)
         {
-            playerPos.position = this.transform.position;
+            player.position = this.transform.position;
         }
         if (Input.GetKey(KeyCode.Space))
         {
@@ -28,7 +28,7 @@ public class VineController : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            playerPos.position = other.transform.position;
+            player.position = other.transform.position;
             isAttached = true;
         }
     }

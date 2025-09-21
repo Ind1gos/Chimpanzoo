@@ -12,9 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     float jumps;
     float maxJumps = 2;
-    float wallJumps;
-    float maxWallJumps = 1;
     bool isTouchingWall = false;
+    //private bool jumpInput;
 
 
     private float horizontal;
@@ -24,12 +23,29 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         jumps = maxJumps;
-        wallJumps = maxWallJumps;
     }
 
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
+
+        //Wall jump
+        if (isTouchingWall && Input.GetKeyDown(KeyCode.Space))
+        {
+            if (horizontal < 0)
+            {                                                //alla hopp lika starka
+                rb.AddForce(new Vector2(1, 1) * wallJumpForce);
+                jumps--;
+            }
+            else if (horizontal > 0)
+            {
+                rb.AddForce(new Vector2(-1, 1) * wallJumpForce);
+                jumps--;
+            }
+            return;
+            //Så inte mer än 1 jump logic händer samtidigt
+
+        }
 
         //Jump
         if (Input.GetKeyDown(KeyCode.Space))
@@ -47,39 +63,26 @@ public class PlayerMovement : MonoBehaviour
                 jumps--;
                 Debug.Log(jumps);
             }
-            //Wall jump
-
-            if (isTouchingWall && Input.GetKeyDown(KeyCode.Space))
-            {
-                if (horizontal < 0)
-                {
-                    rb.AddForce(new Vector2(1, 1) * wallJumpForce);
-                    jumps--;
-                }
-                else if (horizontal > 0)
-                {
-                    rb.AddForce(new Vector2(-1, 1) * wallJumpForce);
-                    jumps--;
-                }
-                //Så inte mer än 1 jump logic händer samtidigt
-                return;
-            }
+            return;
         }
+
         //Flip sprite (använder för Wall Jump)
-        if (horizontal > 0)
+        if (horizontal < 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (horizontal < 0)
+        else if (horizontal > 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    jumpInput = true;
+        //}
     }
     void FixedUpdate()
     {
-        // Apply movement without overriding jump
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
     }
 
@@ -91,10 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
             jumps = maxJumps;
             Debug.Log(jumps);
-            //wallJumps = maxWallJumps;
-            //Debug.Log(wallJumps);
         }
-
         else if (other.gameObject.CompareTag("Wall"))
         {
             Debug.Log(jumps);
