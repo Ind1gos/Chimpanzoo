@@ -30,10 +30,10 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
 
         //Wall jump
-        if (isTouchingWall && Input.GetKeyDown(KeyCode.Space))
+        if (CompareTag("Wall") && Input.GetKeyDown(KeyCode.Space))
         {
             if (horizontal < 0)
-            {                                                //alla hopp lika starka
+            {                                               
                 rb.AddForce(new Vector2(1, 1) * wallJumpForce);
                 jumps--;
             }
