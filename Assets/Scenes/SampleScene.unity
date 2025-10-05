@@ -1125,6 +1125,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trampoline
       objectReference: {fileID: 0}
+    - target: {fileID: 6473149575962109929, guid: 32f46d39376b4234fb9cfb7ce4308d86, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473149575962109929, guid: 32f46d39376b4234fb9cfb7ce4308d86, type: 3}
+      propertyPath: m_Color.g
+      value: 0.1566037
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473149575962109929, guid: 32f46d39376b4234fb9cfb7ce4308d86, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
