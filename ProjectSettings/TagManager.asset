@@ -8,6 +8,7 @@ TagManager:
   - Water
   - Wall
   - Escort
+  - Bamboo
   layers:
   - Default
   - TransparentFX

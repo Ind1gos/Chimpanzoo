@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     float jumps;
     float maxJumps = 2;
     bool isTouchingWall = false;
+    bool isTouchingBamboo;
+    
     //private bool jumpInput;
 
 
@@ -76,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
+        
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
         //    jumpInput = true;
@@ -123,6 +126,17 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, -wallSlideSpeed);
             }
+        }
+
+        if (other.gameObject.CompareTag("Bamboo"))
+        {
+            isTouchingBamboo = false;
+            Debug.Log("isTouchingBamboo");
+        }
+        else if (!other.gameObject.CompareTag("Bamboo"))
+        {
+            isTouchingBamboo = true;
+            Debug.Log("isTouchingBamboo");
         }
     }
 
