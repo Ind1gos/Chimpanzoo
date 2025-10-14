@@ -4,13 +4,16 @@ public class BambooController : MonoBehaviour
 {
     [SerializeField] Transform hand;
     public Transform bambooTransform;
+
     public bool isAttached = false;
+    private bool isPickedUp = false;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (!isPickedUp && other.gameObject.CompareTag("Player"))
         {
             SetParent();
+            isPickedUp = true;
         }
     }
 
@@ -22,9 +25,9 @@ public class BambooController : MonoBehaviour
             transform.localPosition = Vector3.zero;
             isAttached = true;
         }
-        else if(isAttached == false)
+        else
         {
-            transform.SetParent(null, true);
+            Debug.LogWarning("Hand transform is not assigned.");
         }
     }
 }

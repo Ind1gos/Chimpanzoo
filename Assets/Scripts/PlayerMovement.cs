@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     bool isTouchingWall = false;
     bool isTouchingBamboo;
 
-    BambooController bambooController;
+    [SerializeField]BambooController bambooController;
 
     //private bool jumpInput;
 
@@ -81,16 +81,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if(bambooController.isAttached == true && Input.GetKeyDown(KeyCode.Mouse0))
+        if (bambooController.isAttached == true && Input.GetKeyDown(KeyCode.Mouse0))
         {
             bambooController.isAttached = false;
-            //bambooController.bambooTransform (continue here)
+            Vector3 newPosition = bambooController.bambooTransform.position;
+            newPosition.x = transform.position.x + 2;
+            bambooController.bambooTransform.position = newPosition;
         }
-        
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    jumpInput = true;
-        //}
     }
     void FixedUpdate()
     {

@@ -873,10 +873,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      propertyPath: bambooController
-      value: 
-      objectReference: {fileID: 1692013039}
     - target: {fileID: 3677275047900082950, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: m_Name
       value: Player
@@ -944,7 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BambooController
   hand: {fileID: 1653248117}
-  bambooTransform: {fileID: 1692013041}
+  bambooTransform: {fileID: 0}
   isAttached: 0
 --- !u!61 &1692013040
 BoxCollider2D:
@@ -992,11 +988,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!4 &1692013041 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6125835209702219292, guid: 3c20da2ad78d0bd4b8d1ede2b418614b, type: 3}
-  m_PrefabInstance: {fileID: 1678309935772923817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1866799988 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3677275047900082950, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
