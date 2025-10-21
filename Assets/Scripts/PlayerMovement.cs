@@ -80,6 +80,10 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
+        if (bambooController.isAttached == true)
+        {
+            
+        }
 
         if (bambooController.isAttached == true && Input.GetKeyDown(KeyCode.Mouse0))
         {
