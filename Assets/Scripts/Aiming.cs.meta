@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f231b69fb2fc85a4db213d863f17a9be
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - player: {fileID: 9014053084872166421, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
+  - playerRB: {fileID: 8601314177801761695, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
+  - firePoint: {fileID: 7958198814251692113, guid: 2b7945b1db209fb42bbe15fe2eff9583, type: 3}
+  - bambooPrefab: {fileID: 3357444796869577957, guid: 3c20da2ad78d0bd4b8d1ede2b418614b, type: 3}
+  - mainCamera: {fileID: 8576375069347921053, guid: 3e7d67032ee47774e8934f14ec53936b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

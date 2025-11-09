@@ -13,20 +13,43 @@ public class PlayerMovement : MonoBehaviour
     float jumps;
     float maxJumps = 2;
     bool isTouchingWall = false;
-    bool isTouchingBamboo;
+    bool isHoldingBamboo = true;
 
-    [SerializeField]BambooController bambooController;
 
+    public BambooController bambooController;
+    [SerializeField] private GameObject bambooPrefab;
+    [SerializeField] private Transform launchOffset;
+    [SerializeField] private float shootForce = 10f;
+    [SerializeField] private GameObject crosshairPrefab;
+
+
+
+
+    [SerializeField] Camera mainCam;
     //private bool jumpInput;
 
-
-    private float horizontal;
+    public float horizontal;
     private bool groundCheck = false;
 
+    Vector3 mousePos;
+
+    //Input system
+
+    private void Awake()
+    {
+        
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         jumps = maxJumps;
+
+        if (mainCam == null)
+        {
+            mainCam = Camera.main;
+        }
+            
+
     }
 
     void Update()
@@ -37,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         if (CompareTag("Wall") && Input.GetKeyDown(KeyCode.Space))
         {
             if (horizontal < 0)
-            {                                               
+            {
                 rb.AddForce(new Vector2(1, 1) * wallJumpForce);
                 jumps--;
             }
@@ -48,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
             }
             return;
             //Så inte mer än 1 jump logic händer samtidigt
-
         }
 
         //Jump
@@ -80,19 +102,139 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if (bambooController.isAttached == true)
+
+        //Fire bamboo
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    if (bambooPrefab != null && launchOffset != null)
+        //    {
+        //        Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+        //    }
+        //}
+
+        ////if (Input.GetButtonDown("Fire1"))
+        ////{
+        ////    GameObject bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+        ////    Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
+        ////    rbBamboo.linearVelocity = new Vector2(transform.localScale.x * 5f, 0); // example horizontal launch speed
+        ////}
+
+
+
+
+        // Rotate launch offset toward mouse
+
+
+        ////if (mousePos.x < transform.position.x)
+        ////{
+        ////    transform.localScale = new Vector3(-1, 1, 1);
+        ////}
+        ////else
+        ////{
+        ////    transform.localScale = new Vector3(1, 1, 1);
+        ////}
+
+        //mousePos = (mainCam.ScreenToWorldPoint(Input.mousePosition));
+
+        //Vector3 rotation = mousePos - launchOffset.position;
+
+        //float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+        //launchOffset.rotation = Quaternion.Euler(0f, 0f, rotZ);
+
+        //    // Rotate launchOffset toward mouse
+        //    Vector2 aimDir = (mouseWorld - launchOffset.position);
+        //    float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
+        //    launchOffset.rotation = Quaternion.Euler(0, 0, angle);
+
+        //    // Update crosshair position
+        //    if (crosshair != null)
+        //        crosshair.transform.position = new Vector3(mouseWorld.x, mouseWorld.y, 0);
+
+        //    // Fire bamboo
+        //    if (Input.GetButtonDown("Fire1"))
+        //    {
+        //        ShootBamboo(aimDir.normalized);
+        //    }
+        //}
+
+        //private void ShootBamboo(Vector2 direction)
+        //{
+        //    if (bambooPrefab == null || launchOffset == null)
+        //    {
+        //        Debug.LogError("Missing bambooPrefab or launchOffset reference.");
+        //        return;
+        //    }
+
+        //    GameObject bamboo = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+        //    Rigidbody2D rbBamboo = bamboo.GetComponent<Rigidbody2D>();
+
+        //    if (rbBamboo != null)
+        //    {
+        //        rbBamboo.AddForce(direction * shootForce, ForceMode2D.Impulse);
+        //    }
+
+        //}
+
+        //if (isHoldingBamboo)
+        //{
+        //    //Left
+        //    if (horizontal < 0)
+        //    {
+        //        bambooController.MoveLeft();
+        //    }
+        //    //Right
+        //    else if (horizontal > 0)
+        //    {
+        //        bambooController.MoveRight();
+        //    }
+        //}
+
+
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+
+        Vector3 rotation = mousePos - launchOffset.position;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        launchOffset.rotation = Quaternion.Euler(0f, 0f, rotZ);
+
+        // Flip sprite if mouse is left/right of player
+        if (mousePos.x < transform.position.x)
         {
-            
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+           
+        // Fire bamboo toward mouse
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Vector2 direction = (mousePos - launchOffset.position).normalized;
+            GameObject bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+            Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
+
+            if (rbBamboo != null)
+            {
+                rbBamboo.AddForce(direction * shootForce, ForceMode2D.Impulse);
+                
+                if (CompareTag("Ground"))
+                {
+                    isHoldingBamboo = false;
+                    shootForce = 0f;
+                }
+            }
+               
+
         }
 
-        if (bambooController.isAttached == true && Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            bambooController.isAttached = false;
-            Vector3 newPosition = bambooController.bambooTransform.position;
-            newPosition.x = transform.position.x + 2;
-            bambooController.bambooTransform.position = newPosition;
-        }
+        Debug.DrawLine(launchOffset.position, mousePos, Color.red);
     }
+
+
+
+        
     void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
@@ -138,6 +280,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }     
     }
+
 }
 
 
