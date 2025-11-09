@@ -9,7 +9,7 @@ public class BambooController : MonoBehaviour
     private Renderer squareRenderer;
 
     public bool isAttached = false;
-    private bool isPickedUp = false;
+    private bool hasBeenPickedUp = false;
     private Rigidbody2D rb; // Add a reference to Rigidbody2D
 
     [SerializeField] float throwForce = 10f; // You can adjust this in the Inspector
@@ -22,7 +22,6 @@ public class BambooController : MonoBehaviour
         {
             squareRenderer = squareObject.GetComponent<Renderer>();
         }
-            
 
         if (isAttached == true)
         {
@@ -38,7 +37,7 @@ public class BambooController : MonoBehaviour
             {
                 squareRenderer.enabled = !squareRenderer.enabled;
             }
-               
+
             yield return new WaitForSeconds(1f);
         }
     }
@@ -52,29 +51,49 @@ public class BambooController : MonoBehaviour
         }
     }
 
+    //private void ThrowBamboo()
+    //{
+    //    transform.SetParent(null, true);
+    //    isAttached = false;
+
+    //    // Calculate mouse position in world space
+    //    Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //    Vector2 throwDirection = (mouseWorldPos - transform.position);
+
+
+    //    if (rb != null)
+    //    {
+    //        rb.linearVelocity = Vector2.zero; // Reset velocity before throwing
+    //        rb.AddForce(throwDirection.normalized * throwForce, ForceMode2D.Impulse);
+    //    }
+    //}
+
     private void ThrowBamboo()
     {
-        transform.SetParent(null, true);
+        // Släpp från handen
+        transform.SetParent(null);
         isAttached = false;
 
-        // Calculate mouse position in world space
+        // Återaktivera fysik
+        //rb.isKinematic = false;
+        rb.simulated = true;
+
+        // Räkna ut riktning mot muspekaren
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 throwDirection = (mouseWorldPos - transform.position);
-        
+        throwDirection.Normalize();
 
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector2.zero; // Reset velocity before throwing
-            rb.AddForce(throwDirection.normalized * throwForce, ForceMode2D.Impulse);
-        }
+        // Nollställ och kasta
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!isPickedUp && other.gameObject.CompareTag("Player"))
+        if (!hasBeenPickedUp && other.gameObject.CompareTag("Player"))
         {
             SetParent();
-            isPickedUp = true;
+            hasBeenPickedUp = true;
         }
     }
 
