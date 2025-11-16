@@ -444,11 +444,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &771659330 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3153852748472537007, guid: 78707137f0a18eb409b242f9dd7cfbe4, type: 3}
-  m_PrefabInstance: {fileID: 1424349347847117885}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &771659331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6601364344411730911, guid: 78707137f0a18eb409b242f9dd7cfbe4, type: 3}
@@ -1207,30 +1202,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      propertyPath: wall
-      value: 
-      objectReference: {fileID: 771659330}
-    - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      propertyPath: speed
-      value: 6.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      propertyPath: jumpForce
-      value: 325
-      objectReference: {fileID: 0}
-    - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      propertyPath: wallJumpForce
-      value: 175
-      objectReference: {fileID: 0}
-    - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      propertyPath: wallJumpPower
-      value: 650
-      objectReference: {fileID: 0}
-    - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      propertyPath: wallSlideSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3677275047900082950, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: m_Name
       value: Player

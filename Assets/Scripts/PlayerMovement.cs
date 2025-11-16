@@ -20,10 +20,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject bambooPrefab;
     [SerializeField] private Transform launchOffset;
     [SerializeField] private float shootForce = 10f;
-    [SerializeField] private GameObject crosshairPrefab;
-
-
-
 
     [SerializeField] Camera mainCam;
     //private bool jumpInput;
@@ -213,26 +209,21 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 direction = (mousePos - launchOffset.position).normalized;
             GameObject bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+            bambooInstance.tag = "ThrownBamboo";
             Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
 
             if (rbBamboo != null)
             {
                 rbBamboo.AddForce(direction * shootForce, ForceMode2D.Impulse);
                 
-                if (CompareTag("Ground"))
-                {
-                    isHoldingBamboo = false;
-                    shootForce = 0f;
-                }
             }
-               
-
         }
+
+
 
         Debug.DrawLine(launchOffset.position, mousePos, Color.red);
     }
-
-
+    
 
         
     void FixedUpdate()

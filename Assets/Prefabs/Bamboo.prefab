@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 6374830515548254980}
   m_Layer: 0
   m_Name: Bamboo
-  m_TagString: Bamboo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,8 +388,8 @@ Transform:
   m_GameObject: {fileID: 3357444796869577957}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.13, y: 0, z: 0}
-  m_LocalScale: {x: 0.23, y: 0.67, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6125140313135102827}
@@ -412,9 +412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3589464b6b087e643a2fa03460d46155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BambooController
-  speed: 4.5
-  mainCam: {fileID: 8576375069347921053, guid: 3e7d67032ee47774e8934f14ec53936b, type: 3}
-  bambooRB: {fileID: 6374830515548254980}
 --- !u!61 &1054201930708418454
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -425,7 +422,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c2641fd23e3e1c444844ad7a75bf9a14, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
