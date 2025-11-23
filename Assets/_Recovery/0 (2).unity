@@ -637,10 +637,6 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 8601314177801761695, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      propertyPath: m_SleepingMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9014053084872166421, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5457
@@ -905,10 +901,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      propertyPath: panda
-      value: 
-      objectReference: {fileID: 1866799993}
-    - target: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 8576375069347921053, guid: 3e7d67032ee47774e8934f14ec53936b, type: 3}
@@ -986,17 +978,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9014053084872166421, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
   m_PrefabInstance: {fileID: 1668345583}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1668345585 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1550148593954026313, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-  m_PrefabInstance: {fileID: 1668345583}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae0c485756754e4180df25d0598fdf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1866799988 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3677275047900082950, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
@@ -1014,9 +995,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9754db82def1c4242beb885388f0668a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PandaController
+  target: {fileID: 6125835209702219292, guid: 3c20da2ad78d0bd4b8d1ede2b418614b, type: 3}
   speed: 5
-  bambooInstance: {fileID: 1668345585}
-  target: {fileID: 0}
 --- !u!1001 &1969358006
 PrefabInstance:
   m_ObjectHideFlags: 0

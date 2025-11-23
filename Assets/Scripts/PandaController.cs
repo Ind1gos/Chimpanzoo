@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PandaController : MonoBehaviour
 {
-
-    [SerializeField] Transform target;
     public float speed = 5f; // The speed at which the object moves
     
+    public PlayerMovement bambooInstance;
+    public Transform target;
 
     private void Start()
     {
@@ -14,16 +14,16 @@ public class PandaController : MonoBehaviour
     void Update()
     {
         // Ensure there is a target and it's not null
-        if (target != null && target.tag == ("ThrownBamboo"))
+        if (target != null)
         {
-            // Get the current position of this GameObject
-            Vector2 currentPosition = transform.position;
+            //// Get the current position of this GameObject
+            //Vector2 currentPosition = transform.position;
 
-            // Get the target position
-            Vector2 targetPosition = target.transform.position;
+            //// Get the target position
+            //Vector2 targetPosition = bambooInstance.transform.position;
 
             // Move towards the target position
-            transform.position = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
     }
 }

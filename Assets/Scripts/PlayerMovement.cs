@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     public BambooController bambooController;
     [SerializeField] private GameObject bambooPrefab;
+    private GameObject currentBamboo;
+    GameObject bambooInstance;
     [SerializeField] private Transform launchOffset;
     [SerializeField] private float shootForce = 10f;
 
@@ -29,11 +32,14 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 mousePos;
 
+    BambooController BambooController;
+    public PandaController panda;
+
     //Input system
 
     private void Awake()
     {
-        
+
     }
     private void Start()
     {
@@ -44,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         {
             mainCam = Camera.main;
         }
-            
 
     }
 
@@ -98,7 +103,6 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-
         //Fire bamboo
         //if (Input.GetButtonDown("Fire1"))
         //{
@@ -129,9 +133,9 @@ public class PlayerMovement : MonoBehaviour
         ////{
         ////    transform.localScale = new Vector3(1, 1, 1);
         ////}
-
+     
         //mousePos = (mainCam.ScreenToWorldPoint(Input.mousePosition));
-
+     
         //Vector3 rotation = mousePos - launchOffset.position;
 
         //float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
@@ -185,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
         //        bambooController.MoveRight();
         //    }
         //}
-
+     
 
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
@@ -207,25 +211,25 @@ public class PlayerMovement : MonoBehaviour
         // Fire bamboo toward mouse
         if (Input.GetButtonDown("Fire1"))
         {
-            Vector2 direction = (mousePos - launchOffset.position).normalized;
-            GameObject bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
-            bambooInstance.tag = "ThrownBamboo";
-            Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
-
-            if (rbBamboo != null)
-            {
-                rbBamboo.AddForce(direction * shootForce, ForceMode2D.Impulse);
-                
-            }
+            ThrowBamboo();
         }
-
-
-
+     
         Debug.DrawLine(launchOffset.position, mousePos, Color.red);
     }
-    
 
-        
+    void ThrowBamboo()
+    {
+        Vector2 direction = (mousePos - launchOffset.position).normalized;
+        bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+        Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
+
+        if (rbBamboo != null)
+        {
+            rbBamboo.AddForce(direction * shootForce, ForceMode2D.Impulse);
+        }
+        panda.target = rbBamboo.transform;
+    }
+
     void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
@@ -271,7 +275,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }     
     }
-
 }
 
 

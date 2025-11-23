@@ -5,12 +5,12 @@ public class BambooController : MonoBehaviour
 {
     //[SerializeField] Camera mainCam;
     PlayerMovement horizontal;
-
+    public Rigidbody2D rbBamboo;
 
     Vector3 mousePos;
     private void Awake()
     {
-        
+        rbBamboo = GetComponent<Rigidbody2D>();
         //mainCam = GetComponent<Camera>();
     }
     private void Update()
