@@ -15,14 +15,16 @@ public class PlayerMovement : MonoBehaviour
     float maxJumps = 2;
     bool isTouchingWall = false;
     bool isHoldingBamboo = true;
-
-
+    
     public BambooController bambooController;
     [SerializeField] private GameObject bambooPrefab;
     private GameObject currentBamboo;
     GameObject bambooInstance;
     [SerializeField] private Transform launchOffset;
     [SerializeField] private float shootForce = 10f;
+
+
+    [SerializeField] GameObject blockPrefab;
 
     [SerializeField] Camera mainCam;
     //private bool jumpInput;
@@ -133,9 +135,9 @@ public class PlayerMovement : MonoBehaviour
         ////{
         ////    transform.localScale = new Vector3(1, 1, 1);
         ////}
-     
+
         //mousePos = (mainCam.ScreenToWorldPoint(Input.mousePosition));
-     
+
         //Vector3 rotation = mousePos - launchOffset.position;
 
         //float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
@@ -189,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
         //        bambooController.MoveRight();
         //    }
         //}
-     
+
 
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
@@ -215,6 +217,27 @@ public class PlayerMovement : MonoBehaviour
         }
      
         Debug.DrawLine(launchOffset.position, mousePos, Color.red);
+
+
+
+
+
+        //new Vector2(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y));
+
+        Vector2 gridPosition = Vector2Int.RoundToInt(mousePos);
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PlaceBlockQ(gridPosition);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PlaceBlockE(gridPosition);
+        }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Instantiate(blockPrefab, gridPosition, Quaternion.identity);
+        }
     }
 
     void ThrowBamboo()
@@ -228,6 +251,16 @@ public class PlayerMovement : MonoBehaviour
             rbBamboo.AddForce(direction * shootForce, ForceMode2D.Impulse);
         }
         panda.target = rbBamboo.transform;
+    }
+
+    void PlaceBlockQ(Vector2 gridPosition)
+    {
+        Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0,0, 45));
+    }
+
+    void PlaceBlockE(Vector2 gridPosition)
+    {
+        Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, -45));
     }
 
     void FixedUpdate()
