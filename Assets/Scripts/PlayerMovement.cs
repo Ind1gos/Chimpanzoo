@@ -32,7 +32,11 @@ public class PlayerMovement : MonoBehaviour
     public float horizontal;
     private bool groundCheck = false;
 
+
     Vector3 mousePos;
+    Vector2 mouseWorld;
+    Vector2 relativeMouse;
+    Vector2 direction;
 
     BambooController BambooController;
     public PandaController panda;
@@ -58,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
+
+        
 
         //Wall jump
         if (CompareTag("Wall") && Input.GetKeyDown(KeyCode.Space))
@@ -193,30 +199,37 @@ public class PlayerMovement : MonoBehaviour
         //}
 
 
+
+
+
+
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f;
 
         Vector3 rotation = mousePos - launchOffset.position;
+
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
         launchOffset.rotation = Quaternion.Euler(0f, 0f, rotZ);
 
         // Flip sprite if mouse is left/right of player
         if (mousePos.x < transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+
         }
         else
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-           
+
         // Fire bamboo toward mouse
+
         if (Input.GetButtonDown("Fire1"))
         {
             ThrowBamboo();
         }
      
-        Debug.DrawLine(launchOffset.position, mousePos, Color.red);
+
 
 
 
@@ -238,11 +251,21 @@ public class PlayerMovement : MonoBehaviour
         {
             Instantiate(blockPrefab, gridPosition, Quaternion.identity);
         }
+
+
+        direction = new Vector2((mousePos.x - launchOffset.position.x), (mousePos.y - launchOffset.position.y)).normalized;
+
+        Debug.DrawLine(launchOffset.position, mousePos, Color.red);
     }
 
     void ThrowBamboo()
     {
-        Vector2 direction = (mousePos - launchOffset.position).normalized;
+        //(mousePos - launchOffset.position).normalized;
+        //direction = new Vector2((mousePos.x - launchOffset.position.x), (mousePos.y - launchOffset.position.y)).normalized;
+
+        //Vector3 direction = mousePos - launchOffset.position;
+
+
         bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
         Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
 
@@ -250,6 +273,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rbBamboo.AddForce(direction * shootForce, ForceMode2D.Impulse);
         }
+        
         panda.target = rbBamboo.transform;
     }
 
