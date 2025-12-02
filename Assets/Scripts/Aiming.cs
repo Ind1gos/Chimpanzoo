@@ -17,7 +17,7 @@ public class Aiming : MonoBehaviour
     {
         OrbitAroundPlayer();
         AimAtMouse();
-        Shoot();    
+        //Shoot();    
     }
     private void OrbitAroundPlayer()
     {

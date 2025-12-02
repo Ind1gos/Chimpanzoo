@@ -184,10 +184,7 @@ MonoBehaviour:
   jumpForce: 325
   wallJumpForce: 175
   wallSlideSpeed: 2
-  bambooController: {fileID: 1241222087199266710, guid: 3c20da2ad78d0bd4b8d1ede2b418614b, type: 3}
-  bambooPrefab: {fileID: 3357444796869577957, guid: 3c20da2ad78d0bd4b8d1ede2b418614b, type: 3}
   launchOffset: {fileID: 7108801189443063976}
-  shootForce: 10
   blockPrefab: {fileID: 1401446647164778838, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
   mainCam: {fileID: 8576375069347921053, guid: 3e7d67032ee47774e8934f14ec53936b, type: 3}
   horizontal: 0

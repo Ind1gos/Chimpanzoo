@@ -16,12 +16,12 @@ public class PlayerMovement : MonoBehaviour
     bool isTouchingWall = false;
     bool isHoldingBamboo = true;
     
-    public BambooController bambooController;
-    [SerializeField] private GameObject bambooPrefab;
+    
+
     private GameObject currentBamboo;
     GameObject bambooInstance;
     [SerializeField] private Transform launchOffset;
-    [SerializeField] private float shootForce = 10f;
+    
 
 
     [SerializeField] GameObject blockPrefab;
@@ -110,6 +110,9 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
+
+        
+
 
         //Fire bamboo
         //if (Input.GetButtonDown("Fire1"))
@@ -203,32 +206,21 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        ////mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 rotation = mousePos - launchOffset.position;
+        ////Vector3 rotation = mousePos - launchOffset.position;
 
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        ////float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
-        launchOffset.rotation = Quaternion.Euler(0f, 0f, rotZ);
+        ////launchOffset.rotation = Quaternion.Euler(0f, 0f, rotZ);
 
         // Flip sprite if mouse is left/right of player
-        if (mousePos.x < transform.position.x)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
 
-        }
-        else
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
 
         // Fire bamboo toward mouse
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            ThrowBamboo();
-        }
-     
+
+
 
 
 
@@ -237,55 +229,9 @@ public class PlayerMovement : MonoBehaviour
 
         //new Vector2(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y));
 
-        Vector2 gridPosition = Vector2Int.RoundToInt(mousePos);
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            PlaceBlockQ(gridPosition);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            PlaceBlockE(gridPosition);
-        }
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            Instantiate(blockPrefab, gridPosition, Quaternion.identity);
-        }
-
-
-        direction = new Vector2((mousePos.x - launchOffset.position.x), (mousePos.y - launchOffset.position.y)).normalized;
-
-        Debug.DrawLine(launchOffset.position, mousePos, Color.red);
     }
 
-    void ThrowBamboo()
-    {
-        //(mousePos - launchOffset.position).normalized;
-        //direction = new Vector2((mousePos.x - launchOffset.position.x), (mousePos.y - launchOffset.position.y)).normalized;
 
-        //Vector3 direction = mousePos - launchOffset.position;
-
-
-        bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
-        Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
-
-        if (rbBamboo != null)
-        {
-            rbBamboo.AddForce(direction * shootForce, ForceMode2D.Impulse);
-        }
-        
-        panda.target = rbBamboo.transform;
-    }
-
-    void PlaceBlockQ(Vector2 gridPosition)
-    {
-        Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0,0, 45));
-    }
-
-    void PlaceBlockE(Vector2 gridPosition)
-    {
-        Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, -45));
-    }
 
     void FixedUpdate()
     {
