@@ -331,35 +331,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!1 &617774833 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8790450791554605448, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-  m_PrefabInstance: {fileID: 1668345583}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &617774834 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7108801189443063976, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-  m_PrefabInstance: {fileID: 1668345583}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &617774837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617774833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f1762e1b716da643af81bfc5dd0fc8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AimController
-  bambooController: {fileID: 1241222087199266710, guid: 3c20da2ad78d0bd4b8d1ede2b418614b, type: 3}
-  shootForce: 10
-  bambooPrefab: {fileID: 3357444796869577957, guid: 3c20da2ad78d0bd4b8d1ede2b418614b, type: 3}
-  launchOffset: {fileID: 617774834}
-  blockPrefab: {fileID: 1401446647164778838, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
-  mainCam: {fileID: 1520502150}
-  panda: {fileID: 1866799993}
 --- !u!1001 &655392186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1001,8 +972,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7108801189443063976, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.193
+      value: 0.73
       objectReference: {fileID: 0}
+    - target: {fileID: 8353965515134660399, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
+      propertyPath: panda
+      value: 
+      objectReference: {fileID: 1866799993}
+    - target: {fileID: 8353965515134660399, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 1520502150}
     - target: {fileID: 9014053084872166421, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.01
@@ -1046,10 +1025,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8790450791554605448, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 617774837}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
 --- !u!4 &1668345584 stripped
 Transform:

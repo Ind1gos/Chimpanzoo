@@ -101,15 +101,15 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        //Flip sprite (använder för Wall Jump)
-        if (horizontal < 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (horizontal > 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+        //Flip sprite (använder för Wall Jump)  lägg till när behöver den 
+        ////if (horizontal < 0)
+        ////{
+        ////    transform.localScale = new Vector3(1, 1, 1);
+        ////}
+        ////else if (horizontal > 0)
+        ////{
+        ////    transform.localScale = new Vector3(-1, 1, 1);
+        ////}
 
         
 
