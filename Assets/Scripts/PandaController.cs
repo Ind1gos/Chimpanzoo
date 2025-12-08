@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PandaController : MonoBehaviour
 {
-    public float speed = 5f; // The speed at which the object moves
+    public float speed = 10f; // The speed at which the object moves
     
     public PlayerMovement bambooInstance;
     public Transform target;

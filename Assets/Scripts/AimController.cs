@@ -4,7 +4,7 @@ public class AimController : MonoBehaviour
 {
     public BambooController bambooController;
     GameObject bambooInstance;
-    private float shootForce = 2f;
+    private float shootForce = 2.5f;
     [SerializeField] private GameObject bambooPrefab;
     [SerializeField] private Transform launchOffset;
     private bool isAimingRight;
