@@ -11,6 +11,7 @@ TagManager:
   - Bamboo
   - ThrownBamboo
   - Hand
+  - Plank
   layers:
   - Default
   - TransparentFX
