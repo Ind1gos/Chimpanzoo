@@ -293,7 +293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AimController
   bambooController: {fileID: 1241222087199266710, guid: 3c20da2ad78d0bd4b8d1ede2b418614b, type: 3}
-  shootForce: 10
   bambooPrefab: {fileID: 3357444796869577957, guid: 3c20da2ad78d0bd4b8d1ede2b418614b, type: 3}
   launchOffset: {fileID: 7108801189443063976}
   blockPrefab: {fileID: 1401446647164778838, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}

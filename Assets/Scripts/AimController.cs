@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AimController : MonoBehaviour
@@ -15,12 +16,15 @@ public class AimController : MonoBehaviour
     Vector3 mousePos;
     Vector2 direction;
 
+    public float maxPlanks = 5f;
+    public float currentPlanks;
+
     public PandaController panda;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        currentPlanks = maxPlanks;
     }
 
     // Update is called once per frame
@@ -86,8 +90,10 @@ public class AimController : MonoBehaviour
             PlaceBlockR(gridPosition);
         }
 
-        Debug.Log(Equals(isAimingRight, true) ? "Aiming Right" : "Aiming Left");
-        Debug.Log("Rotation " + rotZ);
+        //Debug.Log(Equals(isAimingRight, true) ? "Aiming Right" : "Aiming Left");
+        //Debug.Log("Rotation " + rotZ);
+
+        //Plankpile.text = currentPlanks.ToString();
 
 
         Debug.DrawLine(launchOffset.position, mousePos, Color.red);
@@ -114,13 +120,16 @@ public class AimController : MonoBehaviour
     void PlaceBlockQ(Vector2 gridPosition)
     {
         Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, 45));
+        currentPlanks--;
     }
     void PlaceBlockE(Vector2 gridPosition)
     {
         Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, -45));
+        currentPlanks--;
     }
     void PlaceBlockR(Vector2 gridPosition)
     {
         Instantiate(blockPrefab, gridPosition, Quaternion.identity);
+        currentPlanks--;
     }
 }
