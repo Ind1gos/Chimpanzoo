@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class ButtonController : MonoBehaviour
 {
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private GameObject buttonWall;
-    private bool isPressed = false;
     public Animator buttonAnim;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        buttonAnim = GetComponent<Animator>();
+        bool isPressed = buttonAnim.GetBool("isPressed");
     }
 
     // Update is called once per frame
@@ -21,14 +22,17 @@ public class ButtonController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Panda"))
+        if (other.gameObject.CompareTag("Escort"))
         {
-            buttonAnim.Play("ButtonPush");
-            if (!isPressed)
-            {
-                isPressed = true;
-                buttonWall.SetActive(false);
-            }
+            buttonAnim.SetBool("isPressed", true);
+            buttonWall.SetActive(false);     
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Escort"))
+        {
+            buttonAnim.SetBool("isPressed", false);
         }
     }
 }

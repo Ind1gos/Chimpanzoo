@@ -11,6 +11,9 @@ public class VictoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (CompareTag("Player") && CompareTag("Escort"))
+        {
+            Debug.Log("Victory!");
+        }
     }
 }

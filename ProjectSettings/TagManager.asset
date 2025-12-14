@@ -12,6 +12,8 @@ TagManager:
   - ThrownBamboo
   - Hand
   - Plank
+  - Button
+  - Flag
   layers:
   - Default
   - TransparentFX
