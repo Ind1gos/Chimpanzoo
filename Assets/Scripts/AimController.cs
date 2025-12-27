@@ -4,7 +4,8 @@ using UnityEngine;
 public class AimController : MonoBehaviour
 {
     public BambooController bambooController;
-    GameObject bambooInstance;
+    [SerializeField] private GameObject bambooInstance;
+    [SerializeField] private GameObject plankInstance;
     private float shootForce = 2.5f;
     [SerializeField] private GameObject bambooPrefab;
     [SerializeField] private Transform launchOffset;
@@ -12,6 +13,9 @@ public class AimController : MonoBehaviour
 
 
     [SerializeField] private GameObject blockPrefab;
+    [SerializeField] private BoxCollider2D plankBoxCollider;
+    [SerializeField] private Renderer plankRenderer;
+    [SerializeField] private TMPro.TextMeshProUGUI Plankpile;
     [SerializeField] private Camera mainCam;
     Vector3 mousePos;
     Vector2 direction;
@@ -19,12 +23,16 @@ public class AimController : MonoBehaviour
     public float maxPlanks = 5f;
     public float currentPlanks;
 
+    private bool isPlacingPlank = false;
+
     public PandaController panda;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentPlanks = maxPlanks;
+
+        
     }
 
     // Update is called once per frame
@@ -85,7 +93,7 @@ public class AimController : MonoBehaviour
         {
             PlaceBlockE(gridPosition);
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && gameObject )
         {
             PlaceBlockR(gridPosition);
         }
@@ -119,17 +127,46 @@ public class AimController : MonoBehaviour
     }
     void PlaceBlockQ(Vector2 gridPosition)
     {
-        Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, 45));
+        //Gör vinkeln lättare för pandan att gå upp för plankan -> 45+90/2=67.5 -> funkar inte för att det är double -> 45+67.5/2=56.25 -> 56 -> märkte att det var fel håll så tar jag 56-45=11 -> 45-11=34 -> 34, fortfarande inte nog, gör den mindre, den klarade att gå upp för 2 så jag sänkte med en grad
+        Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, -33));
         currentPlanks--;
     }
     void PlaceBlockE(Vector2 gridPosition)
     {
-        Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, -45));
+        Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, 33));
         currentPlanks--;
     }
     void PlaceBlockR(Vector2 gridPosition)
     {
-        Instantiate(blockPrefab, gridPosition, Quaternion.identity);
+
+        //bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+        //Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
+
+           
+        plankInstance = Instantiate(blockPrefab, gridPosition, Quaternion.identity);
+
+        //plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+        //plankRenderer = plankInstance.GetComponent<SpriteRenderer>();
+
+
+
+        BoxCollider2D plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+        Renderer plankRenderer = plankInstance.GetComponent<Renderer>();
+
+        if (plankBoxCollider != null)
+        {
+            plankBoxCollider.enabled = false;
+
+            Color color = plankRenderer.material.color;
+            color.a = 0.5f;
+            plankRenderer.material.color = color;
+
+        }
+
+
+
+
+
         currentPlanks--;
     }
 }
