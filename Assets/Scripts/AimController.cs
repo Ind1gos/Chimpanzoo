@@ -1,5 +1,8 @@
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class AimController : MonoBehaviour
 {
@@ -23,7 +26,8 @@ public class AimController : MonoBehaviour
     public float maxPlanks = 5f;
     public float currentPlanks;
 
-    private bool isPlacingPlank = false;
+    private bool isPlacingPlank = true;
+    private bool isPlacingPlank2;
 
     public PandaController panda;
 
@@ -93,9 +97,18 @@ public class AimController : MonoBehaviour
         {
             PlaceBlockE(gridPosition);
         }
-        if (Input.GetKeyDown(KeyCode.R) && gameObject )
+
+        //2 olika if statements, en om isPlacingPlank är false, en om isPlacingPlank är true
+
+        if(isPlacingPlank == false && Input.GetKeyDown(KeyCode.R) && gameObject)
         {
             PlaceBlockR(gridPosition);
+            isPlacingPlank = true;
+        }
+        else if (isPlacingPlank == true && Input.GetKeyDown(KeyCode.R) && gameObject)
+        {
+            PlaceBlockR(gridPosition);
+            isPlacingPlank = false;
         }
 
         //Debug.Log(Equals(isAimingRight, true) ? "Aiming Right" : "Aiming Left");
@@ -103,6 +116,20 @@ public class AimController : MonoBehaviour
 
         //Plankpile.text = currentPlanks.ToString();
 
+        if (isPlacingPlank == false && plankInstance != null)
+        {
+            gridPosition = Vector2Int.RoundToInt(mousePos);
+            plankInstance.transform.position = gridPosition;
+        }
+
+        //////Kolla om den instansierade plankan är null eller inte
+        ////if(plankInstance == null)
+        ////{
+        ////    isPlacingPlank = !true;
+        ////    isPlacingPlank = !false; 
+        ////}
+
+        Debug.Log("isPlacingPlank: " + isPlacingPlank);
 
         Debug.DrawLine(launchOffset.position, mousePos, Color.red);
     }
@@ -136,37 +163,115 @@ public class AimController : MonoBehaviour
         Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, 33));
         currentPlanks--;
     }
-    void PlaceBlockR(Vector2 gridPosition)
-    {
+    //void PlaceBlockR(Vector2 gridPosition)
+    //{
+    //    if (!isPlacingPlank && plankInstance != null)
+    //    {
+    //        plankInstance = Instantiate(blockPrefab, gridPosition, Quaternion.identity);
 
-        //bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
-        //Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
+    //        BoxCollider2D plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+    //        Renderer plankRenderer = plankInstance.GetComponent<Renderer>();
 
-           
-        plankInstance = Instantiate(blockPrefab, gridPosition, Quaternion.identity);
+    //        plankBoxCollider.enabled = false;
+    //        Color color = plankRenderer.material.color;
+    //        color.a = 0.5f;
+    //        plankRenderer.material.color = color;
 
-        //plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
-        //plankRenderer = plankInstance.GetComponent<SpriteRenderer>();
+    //        isPlacingPlank = true;
+    //    }
+    //    else if (isPlacingPlank && plankInstance != null)
+    //    {
+    //        BoxCollider2D plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+    //        Renderer plankRenderer = plankInstance.GetComponent<Renderer>();
 
+    //        plankBoxCollider.enabled = true;
+    //        Color color = plankRenderer.material.color;
+    //        color.a = 1f;
+    //        plankRenderer.material.color = color;
 
-
-        BoxCollider2D plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
-        Renderer plankRenderer = plankInstance.GetComponent<Renderer>();
-
-        if (plankBoxCollider != null)
-        {
-            plankBoxCollider.enabled = false;
-
-            Color color = plankRenderer.material.color;
-            color.a = 0.5f;
-            plankRenderer.material.color = color;
-
-        }
-
+    //        isPlacingPlank = false;
+    //    }
 
 
+    //    if (plankInstance != null && isPlacingPlank == false)
+    //    {
+
+    //    }
+    //    else if (plankInstance != null && isPlacingPlank == true)
+    //    {
+
+    //    }
 
 
+
+
+
+
+
+    //    //bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+    //    //Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
+
+
+
+
+    //    //plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+    //    //plankRenderer = plankInstance.GetComponent<SpriteRenderer>();
+
+
+    //}
+
+
+
+     void PlaceBlockR(Vector2 gridPosition)
+     {
+          // Gör det tvärtom
+          isPlacingPlank = !isPlacingPlank;
+
+          ////if (Input.GetKeyDown(KeyCode.R))
+          ////{
+          ////     isPlacingPlank = true;
+          ////}
+
+
+          //bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+          //Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
+
+
+          plankInstance = Instantiate(blockPrefab, gridPosition, Quaternion.identity);
+          
+          //plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+          //plankRenderer = plankInstance.GetComponent<SpriteRenderer>();
+
+          
+          BoxCollider2D plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+          Renderer plankRenderer = plankInstance.GetComponent<Renderer>();
+          
+          if (plankInstance != null && isPlacingPlank == false)
+          {
+               plankBoxCollider.enabled = false;
+               Color color = plankRenderer.material.color;
+               color.a = 0.5f;
+               plankRenderer.material.color = color;
+          }
+          else if (plankInstance != null && isPlacingPlank == true)
+          {
+               plankBoxCollider.enabled = true;
+               Color color = plankRenderer.material.color;
+               color.a = 1f;
+               plankRenderer.material.color = color;
+
+               isPlacingPlank2 = false;
+
+               //if (isPlacingPlank2 == false)
+               //{
+               //   isPlacingPlank = false;
+               //}
+
+          }
         currentPlanks--;
-    }
+     }
+    
+ 
+    
+
 }
