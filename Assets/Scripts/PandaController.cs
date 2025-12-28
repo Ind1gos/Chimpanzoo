@@ -26,11 +26,11 @@ public class PandaController : MonoBehaviour
             // Move towards the target position
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, target.position) < 1.25f)
+            if (Vector2.Distance(transform.position, target.position) < 0.25f)
             {
                 speed = 0;
             }
-            else if (Vector2.Distance(transform.position, target.position) >= 1.25f)
+            else if (Vector2.Distance(transform.position, target.position) >= 0.25f)
             {
                 speed = 5f;
             }

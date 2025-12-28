@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 public class AimController : MonoBehaviour
@@ -57,7 +58,6 @@ public class AimController : MonoBehaviour
         // Normalize to 0–360
         rotZ = Mathf.Repeat(rotZ + 360f, 360f);
 
-
         isAimingRight = rotZ <= 90.0f || rotZ >= 270.0f;
 
         if (isAimingRight)
@@ -98,35 +98,35 @@ public class AimController : MonoBehaviour
 
         //2 olika if statements, en om isPlacingPlank är false, en om isPlacingPlank är true
 
-        if (isPlacingPlankQ == false && Input.GetKeyDown(KeyCode.Q))
-        {
-            PlaceBlockQ(gridPosition);
-            isPlacingPlankQ = true;
-        }
-        else if (isPlacingPlankQ == true && Input.GetKeyDown(KeyCode.Q))
+        if (isPlacingPlankQ == true && Input.GetKeyDown(KeyCode.Q))
         {
             PlaceBlockQ(gridPosition);
             isPlacingPlankQ = false;
         }
-        if (isPlacingPlankE == false && Input.GetKeyDown(KeyCode.E))
+        else if (isPlacingPlankQ == false && Input.GetKeyDown(KeyCode.Q))
         {
-            PlaceBlockE(gridPosition);
-            isPlacingPlankE = true;
+            PlaceBlockQ(gridPosition);
+            isPlacingPlankQ = true;
         }
-        else if(isPlacingPlankE == true && Input.GetKeyDown(KeyCode.E))
+        if (isPlacingPlankE == true && Input.GetKeyDown(KeyCode.E))
         {
             PlaceBlockE(gridPosition);
             isPlacingPlankE = false;
         }
-        if (isPlacingPlankR == false && Input.GetKeyDown(KeyCode.R) && gameObject)
+        else if(isPlacingPlankE == false && Input.GetKeyDown(KeyCode.E))
         {
-            PlaceBlockR(gridPosition);
-            isPlacingPlankR = true;
+            PlaceBlockE(gridPosition);
+            isPlacingPlankE = true;
         }
-        else if (isPlacingPlankR == true && Input.GetKeyDown(KeyCode.R) && gameObject)
+        if (isPlacingPlankR == true && Input.GetKeyDown(KeyCode.R) && gameObject)
         {
             PlaceBlockR(gridPosition);
             isPlacingPlankR = false;
+        }
+        else if (isPlacingPlankR == false && Input.GetKeyDown(KeyCode.R) && gameObject)
+        {
+            PlaceBlockR(gridPosition);
+            isPlacingPlankR = true;
         }
 
         //Debug.Log(Equals(isAimingRight, true) ? "Aiming Right" : "Aiming Left");
@@ -152,12 +152,28 @@ public class AimController : MonoBehaviour
             plankInstance.transform.position = gridPosition;
         }
 
+        //Destroy plank when pressing F and mouse is on plank
+        ////if (Input.GetKeyDown(KeyCode.F) && plankInstance != null && Vector2.Distance(mousePos, plankInstance.transform.position) < 0.2)
+        ////{
+        ////    Destroy(plankInstance);
+        ////    plankInstance = null;
+        ////}
+
         //////Kolla om den instansierade plankan är null eller inte
         ////if(plankInstance == null)
         ////{
         ////    isPlacingPlank = !true;
         ////    isPlacingPlank = !false; 
         ////}
+
+        if (plankInstance == null)
+        {
+            Debug.Log("No GameObject called exampleGameObject found");
+        }
+        else
+        {
+            Debug.Log("PlankInstance not null");
+        }
 
         //Debug.Log("isPlacingPlankQ: " + isPlacingPlankQ);
         //Debug.Log("isPlacingPlankE: " + isPlacingPlankE);
@@ -188,7 +204,7 @@ public class AimController : MonoBehaviour
     {
 
         // Gör det tvärtom
-        isPlacingPlankQ = !isPlacingPlankQ;
+        //isPlacingPlankQ = !isPlacingPlankQ;
 
         ////if (Input.GetKeyDown(KeyCode.R))
         ////{
@@ -243,7 +259,7 @@ public class AimController : MonoBehaviour
 
 
         // Gör det tvärtom
-        isPlacingPlankE = !isPlacingPlankE;
+        //isPlacingPlankE = !isPlacingPlankE;
 
         ////if (Input.GetKeyDown(KeyCode.R))
         ////{
@@ -353,7 +369,7 @@ public class AimController : MonoBehaviour
      void PlaceBlockR(Vector2 gridPosition)
      {
           // Gör det tvärtom
-          isPlacingPlankR = !isPlacingPlankR;
+          //isPlacingPlankR = !isPlacingPlankR;
 
           ////if (Input.GetKeyDown(KeyCode.R))
           ////{
