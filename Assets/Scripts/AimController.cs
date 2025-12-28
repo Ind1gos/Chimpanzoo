@@ -26,7 +26,11 @@ public class AimController : MonoBehaviour
     public float maxPlanks = 5f;
     public float currentPlanks;
 
-    private bool isPlacingPlank = true;
+    private bool isPlacingPlankQ = true;
+    private bool isPlacingPlankE = true;
+    private bool isPlacingPlankR = true;
+
+
     private bool isPlacingPlank2;
 
     public PandaController panda;
@@ -87,28 +91,42 @@ public class AimController : MonoBehaviour
             ThrowBamboo();
         }
 
+
+
         Vector2 gridPosition = Vector2Int.RoundToInt(mousePos);
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            PlaceBlockQ(gridPosition);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            PlaceBlockE(gridPosition);
-        }
 
         //2 olika if statements, en om isPlacingPlank är false, en om isPlacingPlank är true
 
-        if(isPlacingPlank == false && Input.GetKeyDown(KeyCode.R) && gameObject)
+        if (isPlacingPlankQ == false && Input.GetKeyDown(KeyCode.Q))
         {
-            PlaceBlockR(gridPosition);
-            isPlacingPlank = true;
+            PlaceBlockQ(gridPosition);
+            isPlacingPlankQ = true;
         }
-        else if (isPlacingPlank == true && Input.GetKeyDown(KeyCode.R) && gameObject)
+        else if (isPlacingPlankQ == true && Input.GetKeyDown(KeyCode.Q))
+        {
+            PlaceBlockQ(gridPosition);
+            isPlacingPlankQ = false;
+        }
+        if (isPlacingPlankE == false && Input.GetKeyDown(KeyCode.E))
+        {
+            PlaceBlockE(gridPosition);
+            isPlacingPlankE = true;
+        }
+        else if(isPlacingPlankE == true && Input.GetKeyDown(KeyCode.E))
+        {
+            PlaceBlockE(gridPosition);
+            isPlacingPlankE = false;
+        }
+        if (isPlacingPlankR == false && Input.GetKeyDown(KeyCode.R) && gameObject)
         {
             PlaceBlockR(gridPosition);
-            isPlacingPlank = false;
+            isPlacingPlankR = true;
+        }
+        else if (isPlacingPlankR == true && Input.GetKeyDown(KeyCode.R) && gameObject)
+        {
+            PlaceBlockR(gridPosition);
+            isPlacingPlankR = false;
         }
 
         //Debug.Log(Equals(isAimingRight, true) ? "Aiming Right" : "Aiming Left");
@@ -116,7 +134,19 @@ public class AimController : MonoBehaviour
 
         //Plankpile.text = currentPlanks.ToString();
 
-        if (isPlacingPlank == false && plankInstance != null)
+        if (isPlacingPlankQ == false && plankInstance != null)
+        {
+            gridPosition = Vector2Int.RoundToInt(mousePos);
+            plankInstance.transform.position = gridPosition;
+        }
+
+        if (isPlacingPlankE == false && plankInstance != null)
+        {
+            gridPosition = Vector2Int.RoundToInt(mousePos);
+            plankInstance.transform.position = gridPosition;
+        }
+
+        if (isPlacingPlankR == false && plankInstance != null)
         {
             gridPosition = Vector2Int.RoundToInt(mousePos);
             plankInstance.transform.position = gridPosition;
@@ -129,7 +159,9 @@ public class AimController : MonoBehaviour
         ////    isPlacingPlank = !false; 
         ////}
 
-        Debug.Log("isPlacingPlank: " + isPlacingPlank);
+        //Debug.Log("isPlacingPlankQ: " + isPlacingPlankQ);
+        //Debug.Log("isPlacingPlankE: " + isPlacingPlankE);
+        Debug.Log("isPlacingPlankR: " + isPlacingPlankR);
 
         Debug.DrawLine(launchOffset.position, mousePos, Color.red);
     }
@@ -154,14 +186,110 @@ public class AimController : MonoBehaviour
     }
     void PlaceBlockQ(Vector2 gridPosition)
     {
+
+        // Gör det tvärtom
+        isPlacingPlankQ = !isPlacingPlankQ;
+
+        ////if (Input.GetKeyDown(KeyCode.R))
+        ////{
+        ////     isPlacingPlank = true;
+        ////}
+
+
+        //bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+        //Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
+
         //Gör vinkeln lättare för pandan att gå upp för plankan -> 45+90/2=67.5 -> funkar inte för att det är double -> 45+67.5/2=56.25 -> 56 -> märkte att det var fel håll så tar jag 56-45=11 -> 45-11=34 -> 34, fortfarande inte nog, gör den mindre, den klarade att gå upp för 2 så jag sänkte med en grad
-        Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, -33));
+        plankInstance = Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, -33));
+
+
+        //plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+        //plankRenderer = plankInstance.GetComponent<SpriteRenderer>();
+
+
+        BoxCollider2D plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+        Renderer plankRenderer = plankInstance.GetComponent<Renderer>();
+
+        if (plankInstance != null && isPlacingPlankQ == false)
+        {
+            plankBoxCollider.enabled = false;
+            Color color = plankRenderer.material.color;
+            color.a = 0.5f;
+            plankRenderer.material.color = color;
+        }
+        else if (plankInstance != null && isPlacingPlankQ == true)
+        {
+            plankBoxCollider.enabled = true;
+            Color color = plankRenderer.material.color;
+            color.a = 1f;
+            plankRenderer.material.color = color;
+
+
+
+            //if (isPlacingPlank2 == false)
+            //{
+            //   isPlacingPlank = false;
+            //}
+
+        }
         currentPlanks--;
+        //isPlacingPlankQ = false;
+        return;
+        
     }
     void PlaceBlockE(Vector2 gridPosition)
     {
-        Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, 33));
+        
+
+
+        // Gör det tvärtom
+        isPlacingPlankE = !isPlacingPlankE;
+
+        ////if (Input.GetKeyDown(KeyCode.R))
+        ////{
+        ////     isPlacingPlank = true;
+        ////}
+
+
+        //bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+        //Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
+
+
+        plankInstance = Instantiate(blockPrefab, gridPosition, Quaternion.Euler(0, 0, 33));
+
+
+        //plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+        //plankRenderer = plankInstance.GetComponent<SpriteRenderer>();
+
+
+        BoxCollider2D plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+        Renderer plankRenderer = plankInstance.GetComponent<Renderer>();
+
+        if (plankInstance != null && isPlacingPlankE == false)
+        {
+            plankBoxCollider.enabled = false;
+            Color color = plankRenderer.material.color;
+            color.a = 0.5f;
+            plankRenderer.material.color = color;
+
+            
+        }
+        else if (plankInstance != null && isPlacingPlankE == true)
+        {
+            plankBoxCollider.enabled = true;
+            Color color = plankRenderer.material.color;
+            color.a = 1f;
+            plankRenderer.material.color = color;
+
+
+            //if (isPlacingPlank2 == false)
+            //{
+            //   isPlacingPlank = false;
+            //}
+
+        }
         currentPlanks--;
+        return;
     }
     //void PlaceBlockR(Vector2 gridPosition)
     //{
@@ -225,7 +353,7 @@ public class AimController : MonoBehaviour
      void PlaceBlockR(Vector2 gridPosition)
      {
           // Gör det tvärtom
-          isPlacingPlank = !isPlacingPlank;
+          isPlacingPlankR = !isPlacingPlankR;
 
           ////if (Input.GetKeyDown(KeyCode.R))
           ////{
@@ -246,21 +374,21 @@ public class AimController : MonoBehaviour
           BoxCollider2D plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
           Renderer plankRenderer = plankInstance.GetComponent<Renderer>();
           
-          if (plankInstance != null && isPlacingPlank == false)
+          if (plankInstance != null && isPlacingPlankR == false)
           {
                plankBoxCollider.enabled = false;
                Color color = plankRenderer.material.color;
                color.a = 0.5f;
                plankRenderer.material.color = color;
           }
-          else if (plankInstance != null && isPlacingPlank == true)
+          else if (plankInstance != null && isPlacingPlankR == true)
           {
                plankBoxCollider.enabled = true;
                Color color = plankRenderer.material.color;
                color.a = 1f;
                plankRenderer.material.color = color;
 
-               isPlacingPlank2 = false;
+               
 
                //if (isPlacingPlank2 == false)
                //{
@@ -268,7 +396,9 @@ public class AimController : MonoBehaviour
                //}
 
           }
-        currentPlanks--;
+          currentPlanks--;
+          return;
+
      }
     
  
