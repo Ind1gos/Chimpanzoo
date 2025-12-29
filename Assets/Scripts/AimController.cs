@@ -98,35 +98,35 @@ public class AimController : MonoBehaviour
 
         //2 olika if statements, en om isPlacingPlank är false, en om isPlacingPlank är true
 
-        if (isPlacingPlankQ == true && Input.GetKeyDown(KeyCode.Q))
-        {
-            PlaceBlockQ(gridPosition);
-            isPlacingPlankQ = false;
-        }
-        else if (isPlacingPlankQ == false && Input.GetKeyDown(KeyCode.Q))
+        if (isPlacingPlankQ == false && Input.GetKeyDown(KeyCode.Q))
         {
             PlaceBlockQ(gridPosition);
             isPlacingPlankQ = true;
         }
-        if (isPlacingPlankE == true && Input.GetKeyDown(KeyCode.E))
+        else if (isPlacingPlankQ == true && Input.GetKeyDown(KeyCode.Q))
         {
-            PlaceBlockE(gridPosition);
-            isPlacingPlankE = false;
+            PlaceBlockQ(gridPosition);
+            isPlacingPlankQ = false;
         }
-        else if(isPlacingPlankE == false && Input.GetKeyDown(KeyCode.E))
+        if (isPlacingPlankE == false && Input.GetKeyDown(KeyCode.E))
         {
             PlaceBlockE(gridPosition);
             isPlacingPlankE = true;
         }
-        if (isPlacingPlankR == true && Input.GetKeyDown(KeyCode.R) && gameObject)
+        else if(isPlacingPlankE == true && Input.GetKeyDown(KeyCode.E))
         {
-            PlaceBlockR(gridPosition);
-            isPlacingPlankR = false;
+            PlaceBlockE(gridPosition);
+            isPlacingPlankE = false;
         }
-        else if (isPlacingPlankR == false && Input.GetKeyDown(KeyCode.R) && gameObject)
+        if (isPlacingPlankR == false && Input.GetKeyDown(KeyCode.R) && gameObject)
         {
             PlaceBlockR(gridPosition);
             isPlacingPlankR = true;
+        }
+        else if (isPlacingPlankR == true && Input.GetKeyDown(KeyCode.R) && gameObject)
+        {
+            PlaceBlockR(gridPosition);
+            isPlacingPlankR = false;
         }
 
         //Debug.Log(Equals(isAimingRight, true) ? "Aiming Right" : "Aiming Left");
@@ -175,6 +175,8 @@ public class AimController : MonoBehaviour
             Debug.Log("PlankInstance not null");
         }
 
+
+
         //Debug.Log("isPlacingPlankQ: " + isPlacingPlankQ);
         //Debug.Log("isPlacingPlankE: " + isPlacingPlankE);
         Debug.Log("isPlacingPlankR: " + isPlacingPlankR);
@@ -204,7 +206,7 @@ public class AimController : MonoBehaviour
     {
 
         // Gör det tvärtom
-        //isPlacingPlankQ = !isPlacingPlankQ;
+        isPlacingPlankQ = !isPlacingPlankQ;
 
         ////if (Input.GetKeyDown(KeyCode.R))
         ////{
@@ -255,11 +257,11 @@ public class AimController : MonoBehaviour
     }
     void PlaceBlockE(Vector2 gridPosition)
     {
-        
+
 
 
         // Gör det tvärtom
-        //isPlacingPlankE = !isPlacingPlankE;
+        isPlacingPlankE = !isPlacingPlankE;
 
         ////if (Input.GetKeyDown(KeyCode.R))
         ////{
@@ -369,7 +371,7 @@ public class AimController : MonoBehaviour
      void PlaceBlockR(Vector2 gridPosition)
      {
           // Gör det tvärtom
-          //isPlacingPlankR = !isPlacingPlankR;
+          isPlacingPlankR = !isPlacingPlankR;
 
           ////if (Input.GetKeyDown(KeyCode.R))
           ////{
