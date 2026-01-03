@@ -15,7 +15,7 @@ public class PlankpileController : MonoBehaviour
     {
         plankText.enabled = true;
 
-        currentPlanks = aimController.currentPlanks;
+        //currentPlanks = aimController.currentPlanks;
 
 
     }

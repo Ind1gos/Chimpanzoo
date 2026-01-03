@@ -893,11 +893,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 72250640783264061, guid: 2d9ce03cc8bbb054bb5664dab9671bcd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 22.122612
+      value: 17.67123
       objectReference: {fileID: 0}
     - target: {fileID: 72250640783264061, guid: 2d9ce03cc8bbb054bb5664dab9671bcd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.4354
+      value: 26.210001
       objectReference: {fileID: 0}
     - target: {fileID: 72250640783264061, guid: 2d9ce03cc8bbb054bb5664dab9671bcd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2122,65 +2122,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 8576375069347921053, guid: 3e7d67032ee47774e8934f14ec53936b, type: 3}
   m_PrefabInstance: {fileID: 7428101294454571491}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1549956311
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1549956312}
-  - component: {fileID: 1549956314}
-  - component: {fileID: 1549956313}
-  m_Layer: 0
-  m_Name: ScriptController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1549956312
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549956311}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.40244, y: 10.84813, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1549956313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549956311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b1fc7f6cd28d6146b907e500021dcbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!114 &1549956314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549956311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b91abc84ab7ae3041954b86d5386bb45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildModeController
-  currentMode: 0
-  previewController: {fileID: 0}
 --- !u!1 &1568128327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,13 +2234,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1056229001830143537, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1401446647164778838, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
       propertyPath: m_Name
       value: Plank
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401446647164778838, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5149760261333375435, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2341,8 +2282,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2509946133165686623, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
+    - target: {fileID: 5460246151483167062, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2375,10 +2319,6 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 1520502150}
-    - target: {fileID: 8353965515134660399, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      propertyPath: blockPrefab
-      value: 
-      objectReference: {fileID: 1401446647164778838, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
     - target: {fileID: 8353965515134660399, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: boxCollider
       value: 
@@ -2434,10 +2374,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8790450791554605448, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1995578834}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
 --- !u!4 &1668345584 stripped
 Transform:
@@ -2744,28 +2681,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d8d11e312db4e347a17918edbf38a87, type: 3}
---- !u!1 &1995578830 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8790450791554605448, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-  m_PrefabInstance: {fileID: 1668345583}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1995578834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1995578830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26afe107ef2f54a94f2267aa0cf326, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  plankPrefab: {fileID: 1401446647164778838, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
-  plankBoxCollider: {fileID: 1056229001830143537, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
-  plankRenderer: {fileID: 5460246151483167062, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
-  plankTransform: {fileID: 5149760261333375435, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
-  mouseposPlank: {x: 0, y: 0}
 --- !u!1 &2020187181
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,7 +3317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2297008333549723197, guid: ce478702163b2f648b31e65369316e9e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6932279260030434127, guid: ce478702163b2f648b31e65369316e9e, type: 3}
       propertyPath: plankText
@@ -3441,4 +3356,3 @@ SceneRoots:
   - {fileID: 1194097022}
   - {fileID: 1219076113}
   - {fileID: 210344082}
-  - {fileID: 1549956312}

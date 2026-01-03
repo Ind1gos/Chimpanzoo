@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5149760261333375435}
   - component: {fileID: 5460246151483167062}
   - component: {fileID: 1056229001830143537}
+  - component: {fileID: 2509946133165686623}
   m_Layer: 0
   m_Name: Plank
   m_TagString: Ground
@@ -137,3 +138,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2509946133165686623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401446647164778838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea26afe107ef2f54a94f2267aa0cf326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  plankPrefab: {fileID: 1401446647164778838}
+  plankBoxCollider: {fileID: 1056229001830143537}
+  plankRenderer: {fileID: 5460246151483167062}
+  plankTransform: {fileID: 5149760261333375435}
+  mainCam: {fileID: 0}
