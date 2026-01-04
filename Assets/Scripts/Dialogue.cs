@@ -20,7 +20,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
         {
             if (textComponent.text == lines[index])
             {
@@ -51,7 +51,7 @@ public class Dialogue : MonoBehaviour
 
     void NextLine()
     {
-        if(index < lines.Length - 1)
+        if (index < lines.Length - 1)
         {
             index++;
             textComponent.text = string.Empty;
@@ -62,4 +62,5 @@ public class Dialogue : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
 }

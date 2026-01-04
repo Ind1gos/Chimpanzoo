@@ -58,7 +58,7 @@ public class PlankController : MonoBehaviour
         //    OnEnterPreview(gridPosition);
         //}
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R)) 
         {
             OnEnterPreview(gridPosition);
         }
@@ -107,26 +107,23 @@ public class PlankController : MonoBehaviour
     
     void OnEnterPreview(Vector2 gridPosition)
     {
+        if(plankInstance == null  ||  plankInstance.tag == ("Placed"))
+        {
+            plankInstance = Instantiate(plankPrefab, gridPosition, Quaternion.identity);
 
-        plankInstance = Instantiate(plankPrefab, gridPosition, Quaternion.identity);
-        
-        Debug.Log("PlankInstance created");
-        
-        plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
-        plankRenderer = plankInstance.GetComponent<Renderer>();
+            Debug.Log("PlankInstance created");
 
-        if (plankInstance != null) 
-        { 
+            plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
+            plankRenderer = plankInstance.GetComponent<Renderer>();
+
 
             plankInstance.tag = "Preview";
-        
+
             plankBoxCollider.enabled = false;
             Color color = plankRenderer.material.color;
             color.a = 0.5f;
             plankRenderer.material.color = color;
-        }
-
-        
+        } 
     }
 
     void OnEnterPlaced() 
