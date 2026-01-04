@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     BambooController BambooController;
     public PandaController panda;
+    public PlankController plankController;
 
     //Input system
 
@@ -101,6 +102,10 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+
+
+
+
         //Flip sprite (använder för Wall Jump)  lägg till när behöver den 
         ////if (horizontal < 0)
         ////{
@@ -111,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         ////    transform.localScale = new Vector3(-1, 1, 1);
         ////}
 
-        
+
 
 
         //Fire bamboo
@@ -240,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Placed"))
         {
             groundCheck = true;
 
@@ -255,7 +260,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Placed"))
         {
             groundCheck = false;
         }
@@ -278,6 +283,24 @@ public class PlayerMovement : MonoBehaviour
             }
         }     
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pickup"))
+        {
+            plankController.pickedupPlanks += 1;
+            Debug.Log("Picked up plank!");
+        }
+    }
+
+
+    //använd om behövs
+    ////private void OnDrawGizmos()
+    ////{
+    ////    Gizmos.color = Color.red;
+    ////    Gizmos.DrawLine(transform.position, mousePos);
+    ////}
 }
 
 

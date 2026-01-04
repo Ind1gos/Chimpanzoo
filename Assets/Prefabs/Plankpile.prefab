@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1043428941184410371
 Transform:
   m_ObjectHideFlags: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e88e8bcf0bc7d479a2d706336e7832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlankpileController
+  plankText: {fileID: 0}
 --- !u!1001 &1167016360465922592
 PrefabInstance:
   m_ObjectHideFlags: 0

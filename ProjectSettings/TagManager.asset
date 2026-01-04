@@ -16,6 +16,8 @@ TagManager:
   - Flag
   - Preview
   - Placed
+  - Pickup
+  - PickedUp
   layers:
   - Default
   - TransparentFX

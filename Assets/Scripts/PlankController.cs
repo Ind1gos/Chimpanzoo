@@ -13,8 +13,9 @@ public class PlankController : MonoBehaviour
     [SerializeField] private Transform plankTransform;
     Vector2 gridPosition;
     [SerializeField] Vector2 mouseposPlank;
+    public int pickedupPlanks;
 
-    
+
 
     AimController aimController;
     Camera plankCamera; 
@@ -74,13 +75,13 @@ public class PlankController : MonoBehaviour
             plankInstance.transform.position = gridPosition;
 
 
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKey(KeyCode.E))
             {
-                plankInstance.transform.Rotate(0f, 0f, 10f);
+                plankInstance.transform.Rotate(0f, 0f, 5f);
             }
-            else if (Input.GetKeyDown(KeyCode.Q))
+            else if (Input.GetKey(KeyCode.Q))
             {
-                plankInstance.transform.Rotate(0f, 0f, -10f);
+                plankInstance.transform.Rotate(0f, 0f, -5f);
             }
         }
 
@@ -95,7 +96,7 @@ public class PlankController : MonoBehaviour
             Debug.Log("PlankInstance not null");
         }
 
-
+        Debug.Log(pickedupPlanks);
     }
 
     void OnEnterIdle()
@@ -115,7 +116,6 @@ public class PlankController : MonoBehaviour
 
             plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
             plankRenderer = plankInstance.GetComponent<Renderer>();
-
 
             plankInstance.tag = "Preview";
 
