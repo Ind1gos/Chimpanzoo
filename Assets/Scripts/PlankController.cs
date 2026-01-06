@@ -15,9 +15,13 @@ public class PlankController : MonoBehaviour
     Vector2 gridPosition;
     [SerializeField] Vector2 mouseposPlank;
     public int pickedupPlanks;
-    [SerializeField] List<GameObject> placedPlanks;
+    //[SerializeField] List<GameObject> placedPlanks;
+    GameObject[] placedPlanks;
     [SerializeField] GameObject plankPlaced;
+    [SerializeField] GameObject closest;
 
+    float closestDistance;
+    float distance;
 
 
     Camera plankCamera;
@@ -47,18 +51,37 @@ public class PlankController : MonoBehaviour
         {
             return;
         }
-        
-        
+
+
         if (mouseposPlank == null) return;
 
 
         gridPosition = Vector2Int.RoundToInt(aimController.MainCamera.ScreenToWorldPoint(Input.mousePosition));
 
         //FÖRSTA, TAR BARA BORT SENASTE PLANKAN
-        if (plankInstance != null && Input.GetKeyDown(KeyCode.F) && Vector2.Distance(mouseposPlank, plankInstance.transform.position) < plankmouseDistance)
+        //if (plankInstance != null && Input.GetKeyDown(KeyCode.F) && Vector2.Distance(mouseposPlank, plankInstance.transform.position) < plankmouseDistance)
+        //{
+        //    OnEnterIdle();
+        //}
+
+        //if (plankInstance != null && Input.GetKeyDown(KeyCode.F))
+        //{
+        //    GameObject closestPlank = GetClosestPlacedPlank(mouseposPlank);
+        //    if (closestPlank != null && Vector2.Distance(mouseposPlank, closestPlank.transform.position) < plankmouseDistance)
+        //    {
+        //        OnEnterIdle();
+        //    }
+        //}
+
+        if (plankInstance != null && Input.GetKeyDown(KeyCode.F))
         {
-            OnEnterIdle();
+            if (closest != null && Vector2.Distance(mouseposPlank, closest.transform.position) < plankmouseDistance)
+            {
+                plankInstance = closest;
+                OnEnterIdle();
+            }
         }
+
 
         //foreach (var placedPlank in placedPlanks)
         //{
@@ -98,7 +121,7 @@ public class PlankController : MonoBehaviour
         //}
 
 
-
+        
 
         //if (plankInstance == null && Input.GetKeyDown(KeyCode.R))
         //{
@@ -112,10 +135,13 @@ public class PlankController : MonoBehaviour
 
         if (plankInstance != null && Input.GetMouseButtonDown(1) && plankInstance.CompareTag("Preview") && pickedupPlanks > 0)
         {
+            plankInstance.tag = "Placed";
+
             OnEnterPlaced();
             Debug.Log("Plank Placed");
         }
 
+        // if press back space go from preview to idle
 
         if (plankInstance != null && plankInstance.tag == "Preview")
         {
@@ -135,7 +161,7 @@ public class PlankController : MonoBehaviour
             //placedPlanks = GameObject.FindGameObjectsWithTag("Placed");
 
             //gör till en lista av alla plankor med taggen "Placed"
-            placedPlanks = new List<GameObject>(GameObject.FindGameObjectsWithTag("Placed"));
+            //placedPlanks = new List<GameObject>(GameObject.FindGameObjectsWithTag("Placed"));
 
 
 
@@ -149,7 +175,9 @@ public class PlankController : MonoBehaviour
             
         }
 
-        
+
+        closest = GetClosestPlacedPlank(mouseposPlank);
+        Debug.Log("Closest plank found: " + closest);
 
 
         if (plankInstance == null)
@@ -171,7 +199,8 @@ public class PlankController : MonoBehaviour
             Destroy(plankInstance);
             plankInstance = null;
         }
-        else if(plankInstance != null && plankInstance.tag == "Placed")
+
+        else if(closest != null && plankInstance.tag == "Placed")
         {
             //plankManager.UnregisterPlacedPlank(plankInstance);
             pickedupPlanks += 1;
@@ -207,7 +236,7 @@ public class PlankController : MonoBehaviour
 
     void OnEnterPlaced() 
     {
-        plankInstance.tag = "Placed";
+        
         //plankInstance.layer = LayerMask.NameToLayer("PlacedPlank");
         //plankManager.RegisterPlacedPlank(plankInstance);
 
@@ -219,6 +248,50 @@ public class PlankController : MonoBehaviour
         plankRenderer.material.color = color;
 
     }
+
+    GameObject GetClosestPlacedPlank(Vector2 plankmousePos)
+    {
+        placedPlanks = GameObject.FindGameObjectsWithTag("Placed");
+
+        if (placedPlanks.Length == 0)
+        {
+            return null;
+        }
+
+        closest = null;
+        closestDistance = Mathf.Infinity;
+
+        Debug.Log("Finding closest plank...");
+
+        foreach (GameObject plank in placedPlanks)
+        {
+            distance = Vector2.Distance(plankmousePos, plank.transform.position);
+
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closest = plank;
+            }
+        }
+        return closest;
+    }
+
+    ////void GetClosestPlank()
+    ////{
+    ////    float closestDistance = Mathf.Infinity;
+    ////    GameObject closestPlank = null;
+    ////    foreach (var placedPlank in placedPlanks)
+    ////    {
+    ////        float distance = Vector2.Distance(mouseposPlank, placedPlank.transform.position);
+    ////        if (distance < closestDistance)
+    ////        {
+    ////            closestDistance = distance;
+    ////            closestPlank = placedPlank;
+    ////        }
+    ////    }
+    ////    plankInstance = closestPlank;
+
+    ////}
 
     //public List<GameObject> GetAll()
     //{
