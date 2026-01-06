@@ -5,12 +5,13 @@ public class PandaController : MonoBehaviour
 {
     public float speed = 10f; // The speed at which the object moves
     
-    public PlayerMovement bambooInstance;
+    public AimController aimController;
     public Transform target;
+
 
     private void Start()
     {
-        
+
     }
     void Update()
     {
@@ -26,17 +27,24 @@ public class PandaController : MonoBehaviour
             // Move towards the target position
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, target.position) < 0.25f)
+            if (Vector2.Distance(transform.position, target.position) < 0.4f)
             {
                 speed = 0;
             }
-            else if (Vector2.Distance(transform.position, target.position) >= 0.25f)
+            else if (Vector2.Distance(transform.position, target.position) >= 0.5f)
             {
                 speed = 5f;
             }
         }
-
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bamboo"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
 }
 

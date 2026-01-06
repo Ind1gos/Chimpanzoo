@@ -1257,7 +1257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4932313938019898523, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4932313938019898523, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: m_Offset.x
@@ -1269,7 +1269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4932313938019898523, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6870679788434535411, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
       propertyPath: m_Sprite
@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PandaController
   speed: 5
-  bambooInstance: {fileID: 0}
+  aimController: {fileID: 0}
   target: {fileID: 0}
 --- !u!58 &1866799997
 CircleCollider2D:
@@ -2836,8 +2836,8 @@ MonoBehaviour:
   plankTransform: {fileID: 5149760261333375435, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
   mouseposPlank: {x: 0, y: 0}
   pickedupPlanks: 0
-  placedPlanks: []
   plankPlaced: {fileID: 0}
+  closest: {fileID: 0}
   plankManager: {fileID: 1549956314}
 --- !u!1 &2020187181
 GameObject:
@@ -3317,7 +3317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5587329754730580760, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.57
+      value: -4.39
       objectReference: {fileID: 0}
     - target: {fileID: 5587329754730580760, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: m_LocalPosition.y

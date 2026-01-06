@@ -2,7 +2,7 @@
 - Project name: Chimpanzoo
 - Unity version: Unity 6000.2.1f1
 - Active game object:
-  - Name: LaunchOffset
-  - Tag: Hand
-  - Layer: Hand
+  - Name: Panda
+  - Tag: Escort
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
