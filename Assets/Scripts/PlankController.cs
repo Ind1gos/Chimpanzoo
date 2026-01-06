@@ -73,7 +73,7 @@ public class PlankController : MonoBehaviour
         //    }
         //}
 
-        if (plankInstance != null && Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (closest != null && Vector2.Distance(mouseposPlank, closest.transform.position) < plankmouseDistance)
             {
