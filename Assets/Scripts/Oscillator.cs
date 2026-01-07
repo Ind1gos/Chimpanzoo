@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using Physics = UnityEngine.Physics2D;
 public class Oscillator : MonoBehaviour
 {
     [SerializeField] Vector3 movementVector;
@@ -30,4 +30,18 @@ public class Oscillator : MonoBehaviour
         Vector3 offset = movementVector * movementFactor;
         transform.position = startingPosition + offset;
     }
+
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
+    //    if (rb != null)
+    //    {
+    //       Physics.autoSyncTransforms = true;
+    //    }
+    //    else
+    //    {
+    //        Physics.autoSyncTransforms = false;
+    //    }
+    //}
+
 }

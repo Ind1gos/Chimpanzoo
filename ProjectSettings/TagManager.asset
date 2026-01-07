@@ -19,6 +19,8 @@ TagManager:
   - Pickup
   - PickedUp
   - Hat
+  - Oscillator
+  - Connector
   layers:
   - Default
   - TransparentFX

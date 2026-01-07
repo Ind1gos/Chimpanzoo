@@ -46,5 +46,20 @@ public class PandaController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Oscillator"))
+        { 
+           transform.SetParent(other.transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Oscillator"))
+        {
+            transform.SetParent(null);
+        }
+    }
 }
 

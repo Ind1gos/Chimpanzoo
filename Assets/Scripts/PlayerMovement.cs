@@ -256,6 +256,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log(jumps);
         }
+
+        if (other.gameObject.CompareTag("Oscillator"))
+        {
+            transform.SetParent(other.transform);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other)
@@ -268,6 +273,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
             isTouchingWall = false;
+        }
+
+        if(other.gameObject.CompareTag("Oscillator"))
+        {
+            transform.SetParent(null);
         }
     }
 
