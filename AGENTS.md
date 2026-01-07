@@ -2,7 +2,7 @@
 - Project name: Chimpanzoo
 - Unity version: Unity 6000.2.1f1
 - Active game object:
-  - Name: pandahat (2)
-  - Tag: Untagged
+  - Name: OscillatorButton
+  - Tag: Button
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
