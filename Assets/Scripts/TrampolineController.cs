@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class TrampolineController : MonoBehaviour
 {
-    [SerializeField] float trampolineForce = 15f;
+    private float trampolineForce = 10f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
     }
 
     void OnCollisionEnter2D(Collision2D other)

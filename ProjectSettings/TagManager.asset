@@ -18,6 +18,7 @@ TagManager:
   - Placed
   - Pickup
   - PickedUp
+  - Hat
   layers:
   - Default
   - TransparentFX
