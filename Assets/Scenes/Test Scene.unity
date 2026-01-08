@@ -563,6 +563,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2042197743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &136146300 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3478833667923547109, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
+  m_PrefabInstance: {fileID: 917947995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &153088073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,11 +2147,15 @@ PrefabInstance:
     - target: {fileID: 571490961875762984, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: buttonAnim
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1453995375}
     - target: {fileID: 571490961875762984, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: buttonWall
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5123757654838172210, guid: 738404bca0a079a4d8078800468f6b93, type: 3}
+    - target: {fileID: 571490961875762984, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
+      propertyPath: buttonCollider
+      value: 
+      objectReference: {fileID: 1369284330}
     - target: {fileID: 571490961875762984, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: oscillatorPrefab
       value: 
@@ -2155,6 +2164,10 @@ PrefabInstance:
       propertyPath: oscillatorbuttonCollider
       value: 
       objectReference: {fileID: 1369284330}
+    - target: {fileID: 571490961875762984, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
+      propertyPath: pressingoscillatorButton
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 709866427681471602, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: m_Color.b
       value: 0.02908497
@@ -2235,10 +2248,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 10.048
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 571490961875762984, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3478833667923547109, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1369284334}
   m_SourcePrefab: {fileID: 100100000, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
 --- !u!1001 &925074769
 PrefabInstance:
@@ -2683,6 +2700,11 @@ BoxCollider2D:
 --- !u!1 &1151129856 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6705934983077987536, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
+  m_PrefabInstance: {fileID: 3370423971070274650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1151129861 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8527192746382587443, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
   m_PrefabInstance: {fileID: 3370423971070274650}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1161990487
@@ -3166,6 +3188,21 @@ CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 4375561798831635249, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
   m_PrefabInstance: {fileID: 917947995}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1369284334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136146300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbd414d540a5e44cb1f8688d37a5fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OscillatorButtonController
+  oscillatorbuttonCollider: {fileID: 1369284330}
+  buttonAnim: {fileID: 0}
+  pressingoscillatorButton: 0
 --- !u!1 &1409390678
 GameObject:
   m_ObjectHideFlags: 0
@@ -3201,6 +3238,22 @@ Transform:
   - {fileID: 994965639}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1453995375 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5186137398874334271, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
+  m_PrefabInstance: {fileID: 1859065877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1453995377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 571490961875762984, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
+  m_PrefabInstance: {fileID: 1859065877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683862af5cd7a564894d62c454c22b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonController
 --- !u!1 &1527124837
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,6 +4936,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1321330777880848704, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
+      propertyPath: buttonController
+      value: 
+      objectReference: {fileID: 1453995377}
+    - target: {fileID: 1321330777880848704, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
+      propertyPath: oscillatorTransform
+      value: 
+      objectReference: {fileID: 1151129861}
+    - target: {fileID: 1321330777880848704, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
+      propertyPath: oscillatorbuttonController
+      value: 
+      objectReference: {fileID: 1369284334}
     - target: {fileID: 6705934983077987536, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
       propertyPath: m_Name
       value: Oscillator
