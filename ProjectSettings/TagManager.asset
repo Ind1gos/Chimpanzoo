@@ -21,6 +21,7 @@ TagManager:
   - Hat
   - Oscillator
   - Connector
+  - ButtonWall
   layers:
   - Default
   - TransparentFX
@@ -32,8 +33,8 @@ TagManager:
   - Face
   - Hand
   - Placed
-  - 
-  - 
+  - Wall
+  - ButtonWall
   - 
   - 
   - 

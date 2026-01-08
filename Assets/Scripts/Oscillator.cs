@@ -7,6 +7,8 @@ public class Oscillator : MonoBehaviour
     [SerializeField] float period = 2f;
     [SerializeField] Transform oscillatorTransform;
 
+    [SerializeField] bool collideWithPlank = false;
+
     float elapsedTime = 0f;
 
     float movementFactor;
@@ -64,14 +66,30 @@ public class Oscillator : MonoBehaviour
 
             lastPosition = transform.position;
         }
-        if (oscillatorbuttonController.pressingoscillatorButton == true) // pressingoscillatorButton == true
+        if (oscillatorbuttonController.pressingoscillatorButton == true || collideWithPlank == true) // pressingoscillatorButton == true
         {
             // Stop oscillator movement by keeping current position
             gameObject.transform.position = lastPosition;
         }
-
-
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Placed"))
+        {
+            collideWithPlank = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Placed"))
+        {
+            collideWithPlank = false;
+        }
+    }
+
+
 
     //void OnTriggerEnter2D(Collider2D other)
     //{

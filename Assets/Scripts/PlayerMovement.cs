@@ -291,7 +291,24 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, -wallSlideSpeed);
             }
-        }     
+        }
+
+        ////Oscillator
+        //if(other.gameObject.layer == LayerMask.NameToLayer("Wall") && Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (horizontal < 0)
+        //    {
+        //        rb.AddForce(new Vector2(1, 1) * wallJumpForce);
+        //        jumps--;
+        //    }
+        //    else if (horizontal > 0)
+        //    {
+        //        rb.AddForce(new Vector2(-1, 1) * wallJumpForce);
+        //        jumps--;
+        //    }
+        //    return;
+        //    //Så inte mer än 1 jump logic händer samtidigt
+        //}
     }
 
 

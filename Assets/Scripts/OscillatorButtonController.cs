@@ -28,13 +28,19 @@ public class OscillatorButtonController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Escort"))
+        //if (other.gameObject.CompareTag("Escort"))
+        //{
+        //    Debug.Log("Oscillator Button Pressed");
+        //    pressingoscillatorButton = true;
+        //}
+
+        if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Oscillator Button Pressed");
             pressingoscillatorButton = true;
         }
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Bamboo"))
         {
             Debug.Log("Oscillator Button Pressed");
             pressingoscillatorButton = true;
@@ -42,13 +48,19 @@ public class OscillatorButtonController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Escort"))
+        //if (other.gameObject.CompareTag("Escort"))
+        //{
+        //    Debug.Log("Oscillator Button Exited");
+        //    pressingoscillatorButton = false;
+        //}
+
+        if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Oscillator Button Exited");
             pressingoscillatorButton = false;
         }
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Bamboo"))
         {
             Debug.Log("Oscillator Button Exited");
             pressingoscillatorButton = false;
