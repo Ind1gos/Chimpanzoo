@@ -8,6 +8,8 @@ public class ButtonController : MonoBehaviour
     [SerializeField] private GameObject buttonWall;
     public Animator buttonAnim;
     LayerMask buttonwallLayer;
+    public ButtonWallController buttonWallController;
+    public GameObject wallParent;
 
     public bool pressingButton = false;
 
@@ -26,7 +28,16 @@ public class ButtonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (pressingButton == true)
+        {
+            Debug.Log("Deactivating Button Walls");
+            
+        }
+        if (pressingButton == false)
+        {
+            Debug.Log("Activating Button Walls");
+            
+        }
     }
 
     //private void OnTriggerEnter2D(Collider2D other)
@@ -75,11 +86,13 @@ public class ButtonController : MonoBehaviour
 
     //}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Escort"))
+        if (other.gameObject.CompareTag("Escort"))
         {
+
             pressingButton = true;
+            wallParent.SetActive(false);
 
 
             //buttonAnim.SetBool("isPressed", true);
@@ -96,8 +109,9 @@ public class ButtonController : MonoBehaviour
     {
          if (other.gameObject.CompareTag("Escort"))
          {
-            pressingButton = false;
 
+            pressingButton = false;
+            wallParent.SetActive(true);
 
             //buttonAnim.SetBool("isPressed", false);
             // //buttonWall.SetActive(true);
@@ -106,13 +120,7 @@ public class ButtonController : MonoBehaviour
             //     Debug.Log("Activating Button Walls");
             //     wall.SetActive(true);
             // }
-         }
-
-            
-
-
-
-
+        }
     }
         
 }  

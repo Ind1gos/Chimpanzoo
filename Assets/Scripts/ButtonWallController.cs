@@ -4,7 +4,8 @@ public class ButtonWallController : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D wallCollider;
     public bool collideWithPlank = false;
-    ButtonWallController buttonWallController;
+    [SerializeField] ButtonWallController buttonWallController;
+
 
     ButtonController buttonController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,22 +36,15 @@ public class ButtonWallController : MonoBehaviour
         //    }
         //}
 
-        if (buttonController.pressingButton == true)
-        {
-            
-        }
-        if (buttonController.pressingButton == false)
-        {
-
-        }
-        if (buttonController.pressingButton)
-        {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
-        }
+        
+        //if (buttonController.pressingButton)
+        //{
+        //    gameObject.SetActive(false);
+        //}
+        //else
+        //{
+        //    gameObject.SetActive(true);
+        //}
         
 
 
