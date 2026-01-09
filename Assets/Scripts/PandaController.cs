@@ -8,6 +8,7 @@ public class PandaController : MonoBehaviour
     public AimController aimController;
     public Transform target;
 
+    public RespawnController respawnController;
 
     private void Start()
     {
@@ -51,6 +52,11 @@ public class PandaController : MonoBehaviour
         if (other.gameObject.CompareTag("Oscillator"))
         { 
            transform.SetParent(other.transform);
+        }
+
+        if (other.gameObject.CompareTag("Killplane"))
+        {
+            respawnController.RestartScene();
         }
     }
 

@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     BambooController BambooController;
     public PandaController panda;
     public PlankController plankController;
+    public RespawnController respawnController;
 
     //Input system
 
@@ -261,6 +263,11 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.SetParent(other.transform);
         }
+
+        if (other.gameObject.CompareTag("Killplane"))
+        {
+            respawnController.RestartScene();
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other)
@@ -312,6 +319,7 @@ public class PlayerMovement : MonoBehaviour
         //    //Så inte mer än 1 jump logic händer samtidigt
         //}
     }
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
