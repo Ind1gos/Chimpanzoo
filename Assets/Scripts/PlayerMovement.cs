@@ -92,13 +92,13 @@ public class PlayerMovement : MonoBehaviour
                 jumps--;
                 Debug.Log(jumps);
             }
-            //Double jump
-            else if (jumps > 0)
-            {
-                rb.AddForce(Vector2.up * jumpForce);
-                jumps--;
-                Debug.Log(jumps);
-            }
+            //Double jump (does not fit the project)
+            //else if (jumps > 0)
+            //{
+            //    rb.AddForce(Vector2.up * jumpForce);
+            //    jumps--;
+            //    Debug.Log(jumps);
+            //}
             return;
         }
 
@@ -245,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Placed"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Placed")|| other.gameObject.CompareTag("Oscillator") || other.gameObject.layer == 11)
         {
             groundCheck = true;
 
@@ -265,7 +265,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Placed"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Placed") || other.gameObject.layer == 11)
         {
             groundCheck = false;
         }
@@ -279,6 +279,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //just make player not be parent of oscillator
             transform.SetParent(null);
+            groundCheck = false;
         }
     }
 

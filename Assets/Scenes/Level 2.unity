@@ -998,11 +998,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5294052405114722449, guid: 32f46d39376b4234fb9cfb7ce4308d86, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 55.3
+      value: 35.02
       objectReference: {fileID: 0}
     - target: {fileID: 5294052405114722449, guid: 32f46d39376b4234fb9cfb7ce4308d86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.8
+      value: 9.48
       objectReference: {fileID: 0}
     - target: {fileID: 5294052405114722449, guid: 32f46d39376b4234fb9cfb7ce4308d86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1042,7 +1042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6161263275362186222, guid: 32f46d39376b4234fb9cfb7ce4308d86, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1801,7 +1801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 937669903506984633, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3478833667923547109, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: m_Name
@@ -2324,7 +2324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705934983077987536, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7819980670258066360, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
       propertyPath: m_Color.b
@@ -2449,7 +2449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1022335674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2756,11 +2756,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8598978379310341212, guid: 738404bca0a079a4d8078800468f6b93, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.17
+      value: 10.13
       objectReference: {fileID: 0}
     - target: {fileID: 8598978379310341212, guid: 738404bca0a079a4d8078800468f6b93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8598978379310341212, guid: 738404bca0a079a4d8078800468f6b93, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2768,7 +2768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8598978379310341212, guid: 738404bca0a079a4d8078800468f6b93, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8598978379310341212, guid: 738404bca0a079a4d8078800468f6b93, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2780,7 +2780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8598978379310341212, guid: 738404bca0a079a4d8078800468f6b93, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8598978379310341212, guid: 738404bca0a079a4d8078800468f6b93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2792,7 +2792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8598978379310341212, guid: 738404bca0a079a4d8078800468f6b93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5165,7 +5165,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2156209196998761489, guid: 094066ddbeeb53a43b162aad41b15f37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.73
+      value: -10.77
       objectReference: {fileID: 0}
     - target: {fileID: 4093269027466595011, guid: 094066ddbeeb53a43b162aad41b15f37, type: 3}
       propertyPath: m_LocalPosition.x
