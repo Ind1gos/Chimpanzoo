@@ -11,7 +11,6 @@ public class PlankManager : MonoBehaviour
     {
         placedPlanks.Add(plank);
     }
-
     public void UnregisterPlacedPlank(GameObject plank)
     {
         placedPlanks.Remove(plank);

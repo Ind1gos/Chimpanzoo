@@ -103,6 +103,12 @@ public class ButtonController : MonoBehaviour
             //    wall.SetActive(false);
             //}
         }
+
+        if (other.gameObject.CompareTag("Placed"))
+        {
+            pressingButton = true;
+            wallParent.SetActive(false);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -110,8 +116,8 @@ public class ButtonController : MonoBehaviour
          if (other.gameObject.CompareTag("Escort"))
          {
 
-            pressingButton = false;
-            wallParent.SetActive(true);
+             pressingButton = false;
+             wallParent.SetActive(true);
 
             //buttonAnim.SetBool("isPressed", false);
             // //buttonWall.SetActive(true);
@@ -120,7 +126,15 @@ public class ButtonController : MonoBehaviour
             //     Debug.Log("Activating Button Walls");
             //     wall.SetActive(true);
             // }
-        }
+         }
+
+         if (other.gameObject.CompareTag("Placed"))
+         {
+             pressingButton = false;
+             wallParent.SetActive(true);
+         }
+
+
     }
         
 }  

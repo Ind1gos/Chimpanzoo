@@ -277,6 +277,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(other.gameObject.CompareTag("Oscillator"))
         {
+            //just make player not be parent of oscillator
             transform.SetParent(null);
         }
     }
@@ -318,6 +319,8 @@ public class PlayerMovement : MonoBehaviour
         {
             plankController.pickedupPlanks += 1;
             Debug.Log("Picked up plank!");
+            
+            Destroy(collision.gameObject);
         }
     }
 

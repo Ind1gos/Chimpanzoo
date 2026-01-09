@@ -50,33 +50,43 @@ public class ButtonWallController : MonoBehaviour
 
     }
 
-   
-
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("ButtonWall"))
-        {
-            collideWithPlank = true;
-        }
-
-        if(other.gameObject.CompareTag("Placed"))
-        {
-            collideWithPlank = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("ButtonWall"))
-        {
-            collideWithPlank = true;
-        }
-
         if (other.gameObject.CompareTag("Placed"))
+        {
+            collideWithPlank = true;
+        }
+        else
         {
             collideWithPlank = false;
         }
     }
+
+    //private void OnCollisionEnter2D(Collision2D other)
+    //{
+    //    if (other.gameObject.CompareTag("ButtonWall"))
+    //    {
+    //        collideWithPlank = true;
+    //    }
+
+    //    if(other.gameObject.CompareTag("Placed"))
+    //    {
+    //        collideWithPlank = true;
+    //    }
+    //}
+
+    //private void OnCollisionExit2D(Collision2D other)
+    //{
+    //    if (other.gameObject.CompareTag("ButtonWall"))
+    //    {
+    //        collideWithPlank = false;
+    //    }
+
+    //    if (other.gameObject.CompareTag("Placed"))
+    //    {
+    //        collideWithPlank = false;
+    //    }
+    //}
 
     //private void OnCollisionStay2D(Collision2D other)
     //{

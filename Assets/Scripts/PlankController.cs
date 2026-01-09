@@ -32,7 +32,7 @@ public class PlankController : MonoBehaviour
 
 
 
-    float plankmouseDistance = 0.2f;
+    float plankmouseDistance = 0.4f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
