@@ -40,7 +40,7 @@ public class OscillatorButtonController : MonoBehaviour
             pressingoscillatorButton = true;
         }
 
-        if (other.gameObject.CompareTag("Bamboo"))
+        if (other.gameObject.CompareTag("Placed"))
         {
             Debug.Log("Oscillator Button Pressed");
             pressingoscillatorButton = true;
@@ -60,7 +60,7 @@ public class OscillatorButtonController : MonoBehaviour
             pressingoscillatorButton = false;
         }
 
-        if (other.gameObject.CompareTag("Bamboo"))
+        if (other.gameObject.CompareTag("Placed"))
         {
             Debug.Log("Oscillator Button Exited");
             pressingoscillatorButton = false;

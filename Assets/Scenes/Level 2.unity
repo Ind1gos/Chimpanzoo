@@ -1801,7 +1801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 937669903506984633, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3478833667923547109, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: m_Name
@@ -1813,11 +1813,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5587329754730580760, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.65
+      value: 7.93
       objectReference: {fileID: 0}
     - target: {fileID: 5587329754730580760, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5587329754730580760, guid: c9b6cff545c7bb44fa40559a03b2912f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2324,7 +2324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705934983077987536, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7819980670258066360, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
       propertyPath: m_Color.b
@@ -2340,11 +2340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8527192746382587443, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.66
+      value: 34.94
       objectReference: {fileID: 0}
     - target: {fileID: 8527192746382587443, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.48328
+      value: 10.003281
       objectReference: {fileID: 0}
     - target: {fileID: 8527192746382587443, guid: 8c11177d221accb4e95be069f8d733d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5254,6 +5254,7 @@ SceneRoots:
   - {fileID: 827648451}
   - {fileID: 1136634497}
   - {fileID: 784142457}
+  - {fileID: 959295281}
   - {fileID: 1848672052}
   - {fileID: 558525031}
   - {fileID: 1081379817}
@@ -5266,5 +5267,4 @@ SceneRoots:
   - {fileID: 1081116988}
   - {fileID: 351085671}
   - {fileID: 1385547924}
-  - {fileID: 959295281}
   - {fileID: 22430526}
