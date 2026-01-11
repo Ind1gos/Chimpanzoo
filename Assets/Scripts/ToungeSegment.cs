@@ -20,7 +20,7 @@ public class ToungeSegment : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Placed") || other.gameObject.CompareTag("Oscillator") || other.gameObject.CompareTag("ButtonWall"))
+        if (other.gameObject.CompareTag("Placed"))
         {
             snakeController.DisableSegment(index);
         }
@@ -54,9 +54,9 @@ public class ToungeSegment : MonoBehaviour
 
     //}
     //Ändra så den är trigger i snakecontroller
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Placed") || other.gameObject.CompareTag("Oscillator") || other.gameObject.CompareTag("ButtonWall"))
+        if (collision.gameObject.CompareTag("Placed"))
         {
             snakeController.EnableSegment(index);
         }
