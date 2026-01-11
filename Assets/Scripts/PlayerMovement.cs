@@ -278,6 +278,11 @@ public class PlayerMovement : MonoBehaviour
         {
             respawnController.RestartScene();
         }
+
+        if (other.gameObject.CompareTag("Snake"))
+        {
+            respawnController.RestartScene();
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other)
