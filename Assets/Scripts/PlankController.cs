@@ -80,6 +80,8 @@ public class PlankController : MonoBehaviour
                 plankInstance = closest;
                 OnEnterIdle();
             }
+
+
         }
 
 
