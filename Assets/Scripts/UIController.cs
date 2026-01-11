@@ -6,6 +6,8 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] PlankController plankController;
     [SerializeField] private TextMeshProUGUI plankText;
+    [SerializeField] PlayerMovement playerMovement ;
+    [SerializeField] private TextMeshProUGUI bananaText;
 
 
 
@@ -23,6 +25,8 @@ public class UIController : MonoBehaviour
     void Update()
     {
         plankText.text = plankController.pickedupPlanks.ToString();
-        Debug.Log("Plank UI Updated!");
+        //Debug.Log("Plank UI Updated!");
+
+        bananaText.text = playerMovement.BananaCount.ToString();
     }
 }

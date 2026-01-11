@@ -30,12 +30,12 @@ public class ButtonController : MonoBehaviour
     {
         if (pressingButton == true)
         {
-            Debug.Log("Deactivating Button Walls");
+            //Debug.Log("Deactivating Button Walls");
             
         }
         if (pressingButton == false)
         {
-            Debug.Log("Activating Button Walls");
+            //Debug.Log("Activating Button Walls");
             
         }
     }
@@ -104,11 +104,17 @@ public class ButtonController : MonoBehaviour
             //}
         }
 
-        if (other.gameObject.CompareTag("Placed"))
+        if (other.gameObject.CompareTag("Player"))
         {
             pressingButton = true;
             wallParent.SetActive(false);
         }
+
+        //if (other.gameObject.CompareTag("Placed"))
+        //{
+        //    pressingButton = true;
+        //    wallParent.SetActive(false);
+        //}
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -116,8 +122,14 @@ public class ButtonController : MonoBehaviour
          if (other.gameObject.CompareTag("Escort"))
          {
 
-             pressingButton = false;
-             wallParent.SetActive(true);
+            pressingButton = false;
+            if(wallParent != null)
+            {
+                wallParent.SetActive(true);
+            }
+            //wallParent.SetActive(true);
+
+
 
             //buttonAnim.SetBool("isPressed", false);
             // //buttonWall.SetActive(true);
@@ -128,11 +140,17 @@ public class ButtonController : MonoBehaviour
             // }
          }
 
-         if (other.gameObject.CompareTag("Placed"))
-         {
-             pressingButton = false;
-             wallParent.SetActive(true);
-         }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            pressingButton = false;
+            wallParent.SetActive(true);
+        }
+
+        //if (other.gameObject.CompareTag("Placed"))
+        //{
+        //    pressingButton = false;
+        //    wallParent.SetActive(true);
+        //}
 
 
     }

@@ -27,7 +27,7 @@ public class PlankController : MonoBehaviour
     Camera plankCamera;
 
     AimController aimController;
-    [SerializeField] PlankManager plankManager;
+    //[SerializeField] PlankManager plankManager;
 
 
 
@@ -128,7 +128,7 @@ public class PlankController : MonoBehaviour
         //    OnEnterPreview(gridPosition);
         //}
 
-        if (Input.GetKeyDown(KeyCode.R)) 
+        if (Input.GetKeyDown(KeyCode.R) && pickedupPlanks > 0) 
         {
             OnEnterPreview(gridPosition);
         }
@@ -138,7 +138,7 @@ public class PlankController : MonoBehaviour
             plankInstance.tag = "Placed";
 
             OnEnterPlaced();
-            Debug.Log("Plank Placed");
+            //Debug.Log("Plank Placed");
         }
 
         // if press back space go from preview to idle
@@ -177,19 +177,19 @@ public class PlankController : MonoBehaviour
 
 
         closest = GetClosestPlacedPlank(mouseposPlank);
-        Debug.Log("Closest plank found: " + closest);
+        //Debug.Log("Closest plank found: " + closest);
 
 
         if (plankInstance == null)
         {
-            Debug.Log("No GameObject called exampleGameObject found");
+            //Debug.Log("No GameObject called exampleGameObject found");
         }
         else
         {
-            Debug.Log("PlankInstance not null");
+            //Debug.Log("PlankInstance not null");
         }
 
-        Debug.Log(pickedupPlanks);
+        //Debug.Log(pickedupPlanks);
     }
 
     void OnEnterIdle()
@@ -220,7 +220,7 @@ public class PlankController : MonoBehaviour
         {
             plankInstance = Instantiate(plankPrefab, gridPosition, Quaternion.identity);
 
-            Debug.Log("PlankInstance created");
+            //Debug.Log("PlankInstance created");
 
             plankBoxCollider = plankInstance.GetComponent<BoxCollider2D>();
             plankRenderer = plankInstance.GetComponent<Renderer>();
@@ -261,7 +261,7 @@ public class PlankController : MonoBehaviour
         closest = null;
         closestDistance = Mathf.Infinity;
 
-        Debug.Log("Finding closest plank...");
+        //Debug.Log("Finding closest plank...");
 
         foreach (GameObject plank in placedPlanks)
         {

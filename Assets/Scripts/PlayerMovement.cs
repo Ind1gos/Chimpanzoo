@@ -12,26 +12,30 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float wallJumpForce;
     [SerializeField] float wallSlideSpeed;
 
+
     float jumps;
     float maxJumps = 2;
     bool isTouchingWall = false;
     bool isHoldingBamboo = true;
-    
-    
+    public float horizontal;
+    private bool groundCheck = false;
+
+    private int bananaCount = 0;
+    public int BananaCount => bananaCount;
+
+    //public int bananaCount { get; private set; }
+
 
     private GameObject currentBamboo;
     GameObject bambooInstance;
     [SerializeField] private Transform launchOffset;
-    
-
-
     [SerializeField] GameObject blockPrefab;
-
     [SerializeField] Camera mainCam;
+    [SerializeField] private GameObject bananaWallParent;
+    [SerializeField] private GameObject snake;
     //private bool jumpInput;
 
-    public float horizontal;
-    private bool groundCheck = false;
+
 
 
     Vector3 mousePos;
@@ -92,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(Vector2.up * jumpForce);
                 jumps--;
-                Debug.Log(jumps);
+                //Debug.Log(jumps);
             }
             //Double jump (does not fit the project)
             //else if (jumps > 0)
@@ -104,8 +108,14 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-
-
+        if(bananaCount < 1)
+        {
+            bananaWallParent.SetActive(true);
+        }
+        else
+        {
+            bananaWallParent.SetActive(false);
+        }
 
 
         //Flip sprite (använder för Wall Jump)  lägg till när behöver den 
@@ -252,11 +262,11 @@ public class PlayerMovement : MonoBehaviour
             groundCheck = true;
 
             jumps = maxJumps;
-            Debug.Log(jumps);
+            //Debug.Log(jumps);
         }
         else if (other.gameObject.CompareTag("Wall"))
         {
-            Debug.Log(jumps);
+            //Debug.Log(jumps);
         }
 
         if (other.gameObject.CompareTag("Oscillator"))
@@ -322,14 +332,20 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Pickup"))
+        if (other.gameObject.CompareTag("Pickup"))
         {
             plankController.pickedupPlanks += 1;
-            Debug.Log("Picked up plank!");
+            //Debug.Log("Picked up plank!");
             
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Banana"))
+        {
+            bananaCount++;
+            Destroy(other.gameObject);
         }
     }
 
