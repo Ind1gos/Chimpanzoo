@@ -47,7 +47,11 @@ public class AimController : MonoBehaviour
     public PandaController panda;
 
 
-
+    void Awake()
+    {
+        if (mainCam == null) mainCam = Camera.main;
+        if (mainCam == null) Debug.LogError("AimController: Hittar ingen Camera.main i scenen.");
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5587329754730580760
 Transform:
   m_ObjectHideFlags: 0
@@ -40,6 +40,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5587329754730580760}
     m_Modifications:
+    - target: {fileID: 1126562747174170, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126562747174170, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1126562747174170, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.900002
@@ -80,6 +88,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1536427924534140645, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6144310060977718770, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
       propertyPath: buttonAnim
       value: 
@@ -88,19 +100,78 @@ PrefabInstance:
       propertyPath: buttonWall
       value: 
       objectReference: {fileID: 5123757654838172210, guid: 738404bca0a079a4d8078800468f6b93, type: 3}
+    - target: {fileID: 6589701610462578344, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+      propertyPath: m_Color.b
+      value: 0.22533153
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589701610462578344, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589701610462578344, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+      propertyPath: m_Color.r
+      value: 0.18431373
+      objectReference: {fileID: 0}
     - target: {fileID: 7128615160295221567, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: OscillatorButton
       objectReference: {fileID: 0}
     - target: {fileID: 7931893615041446379, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6144310060977718770, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7128615160295221567, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 6496621978257161154}
+    - targetCorrespondingSourceObject: {fileID: 7128615160295221567, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 7225412106879056737}
   m_SourcePrefab: {fileID: 100100000, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+--- !u!1 &3478833667923547109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7128615160295221567, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+  m_PrefabInstance: {fileID: 5956750968964840154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6496621978257161154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3478833667923547109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbd414d540a5e44cb1f8688d37a5fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OscillatorButtonController
+  oscillatorbuttonCollider: {fileID: 4375561798831635249}
+  buttonAnim: {fileID: 0}
+  pressingoscillatorButton: 0
+--- !u!114 &7225412106879056737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3478833667923547109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbd414d540a5e44cb1f8688d37a5fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OscillatorButtonController
+  oscillatorbuttonCollider: {fileID: 4375561798831635249}
+  buttonAnim: {fileID: 0}
+  pressingoscillatorButton: 0
+--- !u!70 &4375561798831635249 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7931893615041446379, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}
+  m_PrefabInstance: {fileID: 5956750968964840154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &5186137398874334271 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1536427924534140645, guid: 20ef64c9baf36354ba47ceef3d316492, type: 3}

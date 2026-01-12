@@ -52,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-
+        if (bananaWallParent == null)
+            Debug.LogError("bananaWallParent saknas. Lägg objekt i scenen och tagga det BananaWallParent.");
     }
     private void Start()
     {
@@ -301,6 +302,10 @@ public class PlayerMovement : MonoBehaviour
         {
             //just make player not be parent of oscillator
             transform.SetParent(null);
+
+            //transform.SetParent(null, true);
+            //oscillatorWall.SetActive(false);
+
             groundCheck = false;
         }
     }

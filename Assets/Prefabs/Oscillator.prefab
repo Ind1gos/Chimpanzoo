@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1321330777880848704}
   - component: {fileID: 2561582502357425292}
   - component: {fileID: 7769305668636491908}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Oscillator
   m_TagString: Oscillator
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.7584905, g: 0.5861926, b: 0, a: 1}
+  m_Color: {r: 0.18039216, g: 0.7294118, b: 0.22352943, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,10 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b93233cf231a04eb2350df9ff9f128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Oscillator
-  movementVector: {x: 6, y: 0, z: 0}
+  movementVector: {x: 0, y: 6, z: 0}
   lastPosition: {x: 0, y: 0, z: 0}
   period: 2
   oscillatorTransform: {fileID: 8527192746382587443}
+  collideWithPlank: 0
   oscillatorbuttonController: {fileID: 0}
 --- !u!61 &2561582502357425292
 BoxCollider2D:
