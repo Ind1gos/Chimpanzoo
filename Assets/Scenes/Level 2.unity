@@ -2524,6 +2524,10 @@ PrefabInstance:
       propertyPath: panda
       value: 
       objectReference: {fileID: 1318097574}
+    - target: {fileID: 2102167831767275462, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 367957543}
     - target: {fileID: 4133076330254634373, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.48

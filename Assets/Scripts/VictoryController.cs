@@ -5,6 +5,7 @@ public class VictoryController : MonoBehaviour
     [SerializeField] bool playerVictory = false;
     [SerializeField] bool escortVictory = false;
     [SerializeField] GameObject victoryScreen;
+    public RespawnController respawnController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,7 +17,8 @@ public class VictoryController : MonoBehaviour
     {
         if(playerVictory && escortVictory)
         {
-            victoryScreen.SetActive(true);
+            respawnController.NextScene();
+            //victoryScreen.SetActive(true);
         }
     }
 

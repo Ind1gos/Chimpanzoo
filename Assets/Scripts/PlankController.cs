@@ -191,7 +191,7 @@ public class PlankController : MonoBehaviour
             //Debug.Log("PlankInstance not null");
         }
 
-        //Debug.Log(pickedupPlanks);
+        Debug.Log(pickedupPlanks);
     }
 
     void OnEnterIdle()
