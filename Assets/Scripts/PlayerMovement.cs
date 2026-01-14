@@ -258,7 +258,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Placed")|| other.gameObject.CompareTag("Oscillator") || other.gameObject.layer == 11)
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Placed") || other.gameObject.CompareTag("Oscillator") || other.gameObject.layer == 11 || other.gameObject.CompareTag("Escort"))
         {
             groundCheck = true;
 

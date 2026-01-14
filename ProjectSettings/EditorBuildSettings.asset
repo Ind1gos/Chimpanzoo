@@ -11,12 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Panda Escort (Level 1).unity
     guid: 172d513c2b528124da8db602242fb2ea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 2.unity
     guid: edd5ad2bc15a95c4584e74d6e3cae5ea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 3.unity
     guid: 6044e5d8a900304439edb6865bcffb96
+  - enabled: 1
+    path: Assets/Scenes/1 Plank (Level 2).unity
+    guid: f9cd944c6df52e949b080d07d94d9166
+  - enabled: 1
+    path: Assets/Scenes/Movineng (Level 3).unity
+    guid: e9c58eb1ce664f546937d52b020f2413
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

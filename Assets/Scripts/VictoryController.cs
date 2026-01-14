@@ -27,12 +27,12 @@ public class VictoryController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerVictory = true;
-            Debug.Log("Player In Victory Zone!");
+            //Debug.Log("Player In Victory Zone!");
         }
         if (other.gameObject.CompareTag("Escort"))
         {
             escortVictory = true;
-            Debug.Log("Escort In Victory Zone!");
+            //Debug.Log("Escort In Victory Zone!");
         }
     }
 
@@ -41,12 +41,12 @@ public class VictoryController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerVictory = false;
-            Debug.Log("Player Left Victory Zone!");
+            //Debug.Log("Player Left Victory Zone!");
         }
         if (collision.gameObject.CompareTag("Escort"))
         {
             escortVictory = false;
-            Debug.Log("Escort Left Victory Zone!");
+            //Debug.Log("Escort Left Victory Zone!");
         }
     }
 }
