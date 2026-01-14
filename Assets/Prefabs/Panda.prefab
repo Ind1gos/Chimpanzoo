@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1767871944183074643}
   - component: {fileID: 6161858017810369721}
   - component: {fileID: 4494125145835603021}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Panda
   m_TagString: Escort
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7803890626758287434}
   - component: {fileID: 427971743247769965}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4750404424199273115}
   - component: {fileID: 4050392762784107783}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7776370806888486352}
   - component: {fileID: 598143485128351849}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 1947843338381163006}
   - component: {fileID: 6201927344762878940}
   - component: {fileID: 5261569083918473187}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pandahat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2347019165257226618}
   - component: {fileID: 6961796625141251138}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4244262296198132540}
   - component: {fileID: 3022862502310165626}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 3225244924764264735}
   - component: {fileID: 2501879309170682503}
   - component: {fileID: 6377530740474584069}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pandahat (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -960,7 +960,7 @@ GameObject:
   - component: {fileID: 8984407858927546062}
   - component: {fileID: 3386251935593058063}
   - component: {fileID: 4112219874746220290}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pandahat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,7 +1095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3709681398453574616}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Panda bowl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
