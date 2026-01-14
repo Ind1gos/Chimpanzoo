@@ -1203,7 +1203,7 @@ PrefabInstance:
     - target: {fileID: 6163040567678404690, guid: 3e7d67032ee47774e8934f14ec53936b, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1750944087}
+      objectReference: {fileID: 1033660880}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2526,7 +2526,7 @@ PrefabInstance:
       objectReference: {fileID: 1318097574}
     - target: {fileID: 4133076330254634373, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17
+      value: 13.48
       objectReference: {fileID: 0}
     - target: {fileID: 4133076330254634373, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2569,6 +2569,10 @@ PrefabInstance:
       value: Chimpanzee
       objectReference: {fileID: 0}
     - target: {fileID: 9151036175535004603, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
+      propertyPath: panda
+      value: 
+      objectReference: {fileID: 1318097574}
+    - target: {fileID: 9151036175535004603, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
       propertyPath: bananaWallParent
       value: 
       objectReference: {fileID: 2078359705}
@@ -2592,6 +2596,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae0c485756754e4180df25d0598fdf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1033660879 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2102167831767275462, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
+  m_PrefabInstance: {fileID: 1033660877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1762e1b716da643af81bfc5dd0fc8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AimController
+--- !u!4 &1033660880 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4133076330254634373, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
+  m_PrefabInstance: {fileID: 1033660877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1049265059
 GameObject:
   m_ObjectHideFlags: 0
@@ -4724,11 +4744,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1750944089}
   m_SourcePrefab: {fileID: 100100000, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
---- !u!4 &1750944087 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9014053084872166421, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
-  m_PrefabInstance: {fileID: 1750944086}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1750944088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8790450791554605448, guid: 7cc097e43bf435a44856db4ac9e93c37, type: 3}
@@ -5244,6 +5259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panda (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4494125145835603021, guid: 2254e8b5b7965e34cbf37fbe154c7490, type: 3}
+      propertyPath: aimController
+      value: 
+      objectReference: {fileID: 1033660879}
     - target: {fileID: 4494125145835603021, guid: 2254e8b5b7965e34cbf37fbe154c7490, type: 3}
       propertyPath: respawnController
       value: 

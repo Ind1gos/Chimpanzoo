@@ -326,7 +326,7 @@ MonoBehaviour:
   blockPrefab: {fileID: 1401446647164778838, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
   mainCam: {fileID: 8576375069347921053, guid: 3e7d67032ee47774e8934f14ec53936b, type: 3}
   bananaWallParent: {fileID: 0}
-  snake: {fileID: 0}
+  snake: {fileID: 6609167175479756458}
   panda: {fileID: 0}
   plankController: {fileID: 7060193536570976572}
   respawnController: {fileID: 0}
