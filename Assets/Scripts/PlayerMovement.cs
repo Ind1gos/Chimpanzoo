@@ -23,6 +23,12 @@ public class PlayerMovement : MonoBehaviour
     private int bananaCount = 0;
     public int BananaCount => bananaCount;
 
+    private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+
+    private float jumpBufferTime = 0.2f;
+    private float jumpBufferCounter;
+
     //public int bananaCount { get; private set; }
 
 
@@ -71,7 +77,16 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
 
-        
+
+
+        if (groundCheck)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
 
         //Wall jump
         if (CompareTag("Wall") && Input.GetKeyDown(KeyCode.Space))
@@ -91,14 +106,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && groundCheck)
         {
-            if (groundCheck)
-            {
-                rb.AddForce(Vector2.up * jumpForce);
-                jumps--;
-                //Debug.Log(jumps);
-            }
+
+            rb.AddForce(Vector2.up * jumpForce);
+            jumps--;
+            //Debug.Log(jumps);
+            
             //Double jump (does not fit the project)
             //else if (jumps > 0)
             //{
@@ -119,135 +133,136 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        //Flip sprite (använder för Wall Jump)  lägg till när behöver den 
-        ////if (horizontal < 0)
-        ////{
-        ////    transform.localScale = new Vector3(1, 1, 1);
-        ////}
-        ////else if (horizontal > 0)
-        ////{
-        ////    transform.localScale = new Vector3(-1, 1, 1);
-        ////}
+
+            //Flip sprite (använder för Wall Jump)  lägg till när behöver den 
+            ////if (horizontal < 0)
+            ////{
+            ////    transform.localScale = new Vector3(1, 1, 1);
+            ////}
+            ////else if (horizontal > 0)
+            ////{
+            ////    transform.localScale = new Vector3(-1, 1, 1);
+            ////}
 
 
 
 
-        //Fire bamboo
-        //if (Input.GetButtonDown("Fire1"))
-        //{
-        //    if (bambooPrefab != null && launchOffset != null)
-        //    {
-        //        Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
-        //    }
-        //}
+            //Fire bamboo
+            //if (Input.GetButtonDown("Fire1"))
+            //{
+            //    if (bambooPrefab != null && launchOffset != null)
+            //    {
+            //        Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+            //    }
+            //}
 
-        ////if (Input.GetButtonDown("Fire1"))
-        ////{
-        ////    GameObject bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
-        ////    Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
-        ////    rbBamboo.linearVelocity = new Vector2(transform.localScale.x * 5f, 0); // example horizontal launch speed
-        ////}
-
-
-
-
-        // Rotate launch offset toward mouse
-
-
-        ////if (mousePos.x < transform.position.x)
-        ////{
-        ////    transform.localScale = new Vector3(-1, 1, 1);
-        ////}
-        ////else
-        ////{
-        ////    transform.localScale = new Vector3(1, 1, 1);
-        ////}
-
-        //mousePos = (mainCam.ScreenToWorldPoint(Input.mousePosition));
-
-        //Vector3 rotation = mousePos - launchOffset.position;
-
-        //float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
-        //launchOffset.rotation = Quaternion.Euler(0f, 0f, rotZ);
-
-        //    // Rotate launchOffset toward mouse
-        //    Vector2 aimDir = (mouseWorld - launchOffset.position);
-        //    float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
-        //    launchOffset.rotation = Quaternion.Euler(0, 0, angle);
-
-        //    // Update crosshair position
-        //    if (crosshair != null)
-        //        crosshair.transform.position = new Vector3(mouseWorld.x, mouseWorld.y, 0);
-
-        //    // Fire bamboo
-        //    if (Input.GetButtonDown("Fire1"))
-        //    {
-        //        ShootBamboo(aimDir.normalized);
-        //    }
-        //}
-
-        //private void ShootBamboo(Vector2 direction)
-        //{
-        //    if (bambooPrefab == null || launchOffset == null)
-        //    {
-        //        Debug.LogError("Missing bambooPrefab or launchOffset reference.");
-        //        return;
-        //    }
-
-        //    GameObject bamboo = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
-        //    Rigidbody2D rbBamboo = bamboo.GetComponent<Rigidbody2D>();
-
-        //    if (rbBamboo != null)
-        //    {
-        //        rbBamboo.AddForce(direction * shootForce, ForceMode2D.Impulse);
-        //    }
-
-        //}
-
-        //if (isHoldingBamboo)
-        //{
-        //    //Left
-        //    if (horizontal < 0)
-        //    {
-        //        bambooController.MoveLeft();
-        //    }
-        //    //Right
-        //    else if (horizontal > 0)
-        //    {
-        //        bambooController.MoveRight();
-        //    }
-        //}
+            ////if (Input.GetButtonDown("Fire1"))
+            ////{
+            ////    GameObject bambooInstance = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+            ////    Rigidbody2D rbBamboo = bambooInstance.GetComponent<Rigidbody2D>();
+            ////    rbBamboo.linearVelocity = new Vector2(transform.localScale.x * 5f, 0); // example horizontal launch speed
+            ////}
 
 
 
 
+            // Rotate launch offset toward mouse
 
 
-        ////mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+            ////if (mousePos.x < transform.position.x)
+            ////{
+            ////    transform.localScale = new Vector3(-1, 1, 1);
+            ////}
+            ////else
+            ////{
+            ////    transform.localScale = new Vector3(1, 1, 1);
+            ////}
 
-        ////Vector3 rotation = mousePos - launchOffset.position;
+            //mousePos = (mainCam.ScreenToWorldPoint(Input.mousePosition));
 
-        ////float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+            //Vector3 rotation = mousePos - launchOffset.position;
 
-        ////launchOffset.rotation = Quaternion.Euler(0f, 0f, rotZ);
+            //float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
-        // Flip sprite if mouse is left/right of player
+            //launchOffset.rotation = Quaternion.Euler(0f, 0f, rotZ);
 
+            //    // Rotate launchOffset toward mouse
+            //    Vector2 aimDir = (mouseWorld - launchOffset.position);
+            //    float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
+            //    launchOffset.rotation = Quaternion.Euler(0, 0, angle);
 
-        // Fire bamboo toward mouse
+            //    // Update crosshair position
+            //    if (crosshair != null)
+            //        crosshair.transform.position = new Vector3(mouseWorld.x, mouseWorld.y, 0);
+
+            //    // Fire bamboo
+            //    if (Input.GetButtonDown("Fire1"))
+            //    {
+            //        ShootBamboo(aimDir.normalized);
+            //    }
+            //}
+
+            //private void ShootBamboo(Vector2 direction)
+            //{
+            //    if (bambooPrefab == null || launchOffset == null)
+            //    {
+            //        Debug.LogError("Missing bambooPrefab or launchOffset reference.");
+            //        return;
+            //    }
+
+            //    GameObject bamboo = Instantiate(bambooPrefab, launchOffset.position, launchOffset.rotation);
+            //    Rigidbody2D rbBamboo = bamboo.GetComponent<Rigidbody2D>();
+
+            //    if (rbBamboo != null)
+            //    {
+            //        rbBamboo.AddForce(direction * shootForce, ForceMode2D.Impulse);
+            //    }
+
+            //}
+
+            //if (isHoldingBamboo)
+            //{
+            //    //Left
+            //    if (horizontal < 0)
+            //    {
+            //        bambooController.MoveLeft();
+            //    }
+            //    //Right
+            //    else if (horizontal > 0)
+            //    {
+            //        bambooController.MoveRight();
+            //    }
+            //}
 
 
 
 
 
 
+            ////mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
+            ////Vector3 rotation = mousePos - launchOffset.position;
+
+            ////float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+            ////launchOffset.rotation = Quaternion.Euler(0f, 0f, rotZ);
+
+            // Flip sprite if mouse is left/right of player
+
+
+            // Fire bamboo toward mouse
 
 
 
-        //new Vector2(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y));
 
-    }
+
+
+
+
+
+            //new Vector2(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y));
+
+        }
 
 
 
