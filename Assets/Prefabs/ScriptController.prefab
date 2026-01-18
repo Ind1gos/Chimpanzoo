@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 527734908949125992}
   - component: {fileID: 182511840788934729}
   - component: {fileID: 5576790972536592392}
+  - component: {fileID: 7319685151467378927}
   m_Layer: 0
   m_Name: ScriptController
   m_TagString: Untagged
@@ -61,3 +62,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577802b5205844e4ebcac50c4fc20211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RespawnController
+--- !u!114 &7319685151467378927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6461428900274839645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6312f978cf771d94b92a25ad691920f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonWallController
+  wallCollider: {fileID: 0}
+  collideWithPlank: 0
+  buttonWallController: {fileID: 0}

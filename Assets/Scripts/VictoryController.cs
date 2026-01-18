@@ -22,6 +22,11 @@ public class VictoryController : MonoBehaviour
         }
     }
 
+    public void ShowVictoryScene()
+    {
+        victoryScreen.SetActive(true);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))

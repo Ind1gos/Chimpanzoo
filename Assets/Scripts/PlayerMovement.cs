@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject player;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
@@ -318,7 +319,11 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Oscillator"))
         {
             //just make player not be parent of oscillator
-            transform.SetParent(null);
+            if(transform.parent != null)
+            {
+                transform.SetParent(null);
+            }
+                
 
             //transform.SetParent(null, true);
             //oscillatorWall.SetActive(false);

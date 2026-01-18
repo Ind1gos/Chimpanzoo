@@ -149,8 +149,8 @@ GameObject:
   - component: {fileID: 2779605582915401506}
   - component: {fileID: 2124213157021320595}
   - component: {fileID: 2665960785788400367}
+  - component: {fileID: 1837912807135504808}
   - component: {fileID: 9151036175535004603}
-  - component: {fileID: 5146873699751542428}
   m_Layer: 6
   m_Name: Chimpanzee
   m_TagString: Player
@@ -305,33 +305,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &9151036175535004603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6609167175479756458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae0c485756754e4180df25d0598fdf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 2665960785788400367}
-  speed: 6.25
-  jumpForce: 325
-  wallJumpForce: 175
-  wallSlideSpeed: 2
-  horizontal: 0
-  launchOffset: {fileID: 8756099947727566986}
-  blockPrefab: {fileID: 1401446647164778838, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
-  mainCam: {fileID: 8576375069347921053, guid: 3e7d67032ee47774e8934f14ec53936b, type: 3}
-  bananaWallParent: {fileID: 0}
-  snake: {fileID: 6609167175479756458}
-  panda: {fileID: 0}
-  plankController: {fileID: 7060193536570976572}
-  respawnController: {fileID: 0}
---- !u!66 &5146873699751542428
+--- !u!66 &1837912807135504808
 CompositeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -376,3 +350,29 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 6609167175479756458}
+--- !u!114 &9151036175535004603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609167175479756458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae0c485756754e4180df25d0598fdf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 2665960785788400367}
+  speed: 6.25
+  jumpForce: 325
+  wallJumpForce: 175
+  wallSlideSpeed: 2
+  horizontal: 0
+  launchOffset: {fileID: 8756099947727566986}
+  blockPrefab: {fileID: 1401446647164778838, guid: 44ac1eafaaa4ecd4693408c43f810f21, type: 3}
+  mainCam: {fileID: 8576375069347921053, guid: 3e7d67032ee47774e8934f14ec53936b, type: 3}
+  bananaWallParent: {fileID: 0}
+  snake: {fileID: 6609167175479756458}
+  panda: {fileID: 0}
+  plankController: {fileID: 7060193536570976572}
+  respawnController: {fileID: 0}
