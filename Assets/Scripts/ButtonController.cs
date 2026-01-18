@@ -86,37 +86,50 @@ public class ButtonController : MonoBehaviour
 
     //}
 
-    private void OnTriggerEnter2D(Collider2D other)
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.gameObject.CompareTag("Escort"))
+    //    {
+
+    //        pressingButton = true;
+    //        wallParent.SetActive(false);
+
+
+    //        //buttonAnim.SetBool("isPressed", true);
+    //        ////buttonWall.SetActive(false);
+    //        //foreach (GameObject wall in GameObject.FindGameObjectsWithTag("ButtonWall"))
+    //        //{
+    //        //    Debug.Log("Deactivating Button Walls");
+    //        //    wall.SetActive(false);
+    //        //}
+    //    }
+
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        pressingButton = true;
+    //        wallParent.SetActive(false);
+    //    }
+
+    //    //if (other.gameObject.CompareTag("Placed"))
+    //    //{
+    //    //    pressingButton = true;
+    //    //    wallParent.SetActive(false);
+    //    //}
+    //}
+
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Escort"))
         {
-
             pressingButton = true;
             wallParent.SetActive(false);
-
-
-            //buttonAnim.SetBool("isPressed", true);
-            ////buttonWall.SetActive(false);
-            //foreach (GameObject wall in GameObject.FindGameObjectsWithTag("ButtonWall"))
-            //{
-            //    Debug.Log("Deactivating Button Walls");
-            //    wall.SetActive(false);
-            //}
         }
-
         if (other.gameObject.CompareTag("Player"))
         {
             pressingButton = true;
             wallParent.SetActive(false);
         }
-
-        //if (other.gameObject.CompareTag("Placed"))
-        //{
-        //    pressingButton = true;
-        //    wallParent.SetActive(false);
-        //}
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
          if (other.gameObject.CompareTag("Escort"))
@@ -143,7 +156,12 @@ public class ButtonController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             pressingButton = false;
-            wallParent.SetActive(true);
+            
+            if(wallParent != null)
+            {
+                wallParent.SetActive(true);
+            }
+            
         }
 
         //if (other.gameObject.CompareTag("Placed"))

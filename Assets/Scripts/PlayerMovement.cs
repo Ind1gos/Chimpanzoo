@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     float jumps;
-    float maxJumps = 2;
+    float maxJumps = 1;
     bool isTouchingWall = false;
     bool isHoldingBamboo = true;
     public float horizontal;
@@ -93,11 +93,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (horizontal < 0)
             {
+                jumps = maxJumps - 1;
                 rb.AddForce(new Vector2(1, 1) * wallJumpForce);
                 jumps--;
             }
             else if (horizontal > 0)
             {
+                jumps = maxJumps - 1;
                 rb.AddForce(new Vector2(-1, 1) * wallJumpForce);
                 jumps--;
             }
@@ -303,7 +305,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Placed") || other.gameObject.layer == 11)
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Placed") || other.gameObject.CompareTag("Oscillator") || other.gameObject.layer == 11 || other.gameObject.CompareTag("Escort"))
         {
             groundCheck = false;
         }

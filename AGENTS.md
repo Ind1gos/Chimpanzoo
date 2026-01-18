@@ -2,7 +2,7 @@
 - Project name: Chimpanzoo
 - Unity version: Unity 6000.2.1f1
 - Active game object:
-  - Name: Panda (1)
-  - Tag: Escort
-  - Layer: Panda
+  - Name: BananaWall
+  - Tag: Untagged
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

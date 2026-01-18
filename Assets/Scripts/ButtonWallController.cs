@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class ButtonWallController : MonoBehaviour
@@ -6,6 +7,8 @@ public class ButtonWallController : MonoBehaviour
     public bool collideWithPlank = false;
     [SerializeField] ButtonWallController buttonWallController;
 
+
+    
 
     ButtonController buttonController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,7 +53,7 @@ public class ButtonWallController : MonoBehaviour
 
     }
 
-    private void OnCollisionStay(Collision other)
+    private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Placed"))
         {
