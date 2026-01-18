@@ -420,6 +420,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1753448663}
     - target: {fileID: 9151036175535004603, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 73678983}
+    - target: {fileID: 9151036175535004603, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
       propertyPath: bananaWallParent
       value: 
       objectReference: {fileID: 790600871}
@@ -437,7 +441,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9151036175535004603, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
   m_PrefabInstance: {fileID: 73678979}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 73678983}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ae0c485756754e4180df25d0598fdf1, type: 3}
@@ -459,6 +463,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea26afe107ef2f54a94f2267aa0cf326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+--- !u!1 &73678983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6609167175479756458, guid: fdca805fa7b4a4b42aa433b95684a365, type: 3}
+  m_PrefabInstance: {fileID: 73678979}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &96243401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 72250640783264061, guid: 2d9ce03cc8bbb054bb5664dab9671bcd, type: 3}
