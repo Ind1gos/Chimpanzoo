@@ -1486,6 +1486,17 @@ PrefabInstance:
       addedObject: {fileID: 845393789}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c68789955793a84197e5b4bb7bc6a8e, type: 3}
+--- !u!114 &415981211 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7459004721706399461, guid: 6c68789955793a84197e5b4bb7bc6a8e, type: 3}
+  m_PrefabInstance: {fileID: 415981210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7560dd83ab69e04fa4df07d41f06f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VictoryController
 --- !u!1001 &418164653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4682,6 +4693,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2427988653319674083, guid: a98af6f55ce68c248a57c2d0c32b94cd, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 2065576890}
+    - target: {fileID: 2427988653319674083, guid: a98af6f55ce68c248a57c2d0c32b94cd, type: 3}
+      propertyPath: victoryController
+      value: 
+      objectReference: {fileID: 415981211}
     - target: {fileID: 2686927361848309807, guid: a98af6f55ce68c248a57c2d0c32b94cd, type: 3}
       propertyPath: m_Name
       value: Killplane
@@ -6987,6 +7006,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5576790972536592392, guid: c26e4680b6b998243a746a6c5292081f, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 2065576890}
+    - target: {fileID: 5576790972536592392, guid: c26e4680b6b998243a746a6c5292081f, type: 3}
+      propertyPath: victoryController
+      value: 
+      objectReference: {fileID: 415981211}
     - target: {fileID: 6461428900274839645, guid: c26e4680b6b998243a746a6c5292081f, type: 3}
       propertyPath: m_Name
       value: ScriptController
