@@ -5,18 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Panda Escort (Level 1).unity
     guid: 172d513c2b528124da8db602242fb2ea
-  - enabled: 0
-    path: Assets/Scenes/Level 2.unity
-    guid: edd5ad2bc15a95c4584e74d6e3cae5ea
-  - enabled: 0
-    path: Assets/Scenes/Level 3.unity
-    guid: 6044e5d8a900304439edb6865bcffb96
   - enabled: 1
     path: Assets/Scenes/1 Plank (Level 2).unity
     guid: f9cd944c6df52e949b080d07d94d9166
