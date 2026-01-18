@@ -2,7 +2,7 @@
 - Project name: Chimpanzoo
 - Unity version: Unity 6000.2.1f1
 - Active game object:
-  - Name: ScriptController
-  - Tag: Untagged
-  - Layer: Default
+  - Name: Panda (1)
+  - Tag: Escort
+  - Layer: Panda
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
